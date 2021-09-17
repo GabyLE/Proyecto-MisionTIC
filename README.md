@@ -6,3 +6,9 @@ Equipo Ingenieros 17:
 Soy Sebastián Bejarano, nací en Fusagasugá - Cundinamarca donde resido actualmente.
 Ingeniero de Petróleos de la Universidad de América de Bogotá.
 Realicé un diplomado con la Universidad de Antioquia en Análisis de Datos y Machine Learning en Python.
+
+
+Soy Sandra Milena, nacida en la ciudad de Florencia - Caquetá y residente en la ciudad de Ibagué. 
+Ingeniera electrónica, especialista en pedagogía. 
+Me desempeño como maestra en una institución en la ciudad de Ibagué. 
+
