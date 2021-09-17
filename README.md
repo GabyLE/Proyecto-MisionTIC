@@ -1,4 +1,4 @@
-# Proyecto-MisionTIC
+﻿# Proyecto-MisionTIC
 Proyecto de Desarrollo  Software del Grupo 17: Se propone analizar, diseñar y construir una aplicación software que permita controlar las ventas físicas y virtuales de una empresa de manufactura y hacerles el correspondiente seguimiento.
 
 Equipo Los Ingenieros 17:
@@ -16,3 +16,7 @@ Me desempeño como maestra en una institución en la ciudad de Ibagué.
 SCRUM MASTER
 Soy Gabriela López, nací en la ciudad de Bogotá pero fui criada y resido en la ciudad de Cali. Actualmente soy estudiante de Ingeniería Mecánica. Me encuentro cursando mis últimos semestres en la Universidad del Valle.
 
+DESARROLLADOR
+Soy Yerman A. Hernandez Saenz, nací y resido en la ciudad de Ibagué - Tolima.
+Ingeniero de Sistemas y especialista en Auditoria Integral y Revisoria Fiscal.
+Me desempeño como docente de la UNAD y evaluador de competencias laborales de la ILO
