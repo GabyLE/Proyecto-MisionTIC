@@ -20,3 +20,6 @@ DESARROLLADOR
 Soy Yerman A. Hernandez Saenz, nací y resido en la ciudad de Ibagué - Tolima.
 Ingeniero de Sistemas y especialista en Auditoria Integral y Revisoria Fiscal.
 Me desempeño como docente de la UNAD y evaluador de competencias laborales de la ILO
+
+ADMINISTRADOR BD
+Soy Jose Fernando, nacido en Barranquilla. Actualmente vivo en Cereté, Córdoba. Estudié ing. electrónica y relicé un diplomado en telecomunicaciones en la UPB Monteria, Tecnólogo en gestión redes de datos y maantenimiento de equipos. Realizo soporte técnico, medio tiempo.
