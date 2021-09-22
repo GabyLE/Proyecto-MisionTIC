@@ -2,83 +2,146 @@
 <html lang="es">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-    <title>Inicio</title>
+  <title>Inicio</title>
 </head>
 
 <body>
 
-        <!--navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container-fluid">
-                <!--off canvas trigger-->
-                <button class="btn btn-primary me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                <!--off canvas trigger-->
-              <a class="navbar-brand fw-bold me-auto" href="#"><img src="../assets/img/Logotipo.png" alt="" height="24" class="d-inline-block align-text-top">RadTech</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="icon ion-md-person"></i>
-                        Jane Doe
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                      
-                    </ul>
-                  </li>
-                  
-                </ul>
-                
-              </div>
-            </div>
-          </nav>
-        <!--navbar-->
+  <!--navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <!--off canvas trigger-->
+      <button class="btn btn-primary me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--off canvas trigger-->
+      <a class="navbar-brand fw-bold me-auto" href="#"><img src="../assets/img/Logotipo.png" alt="" height="24"
+          class="d-inline-block align-text-top">RadTech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-        <!--off canvas-->
-          <div class="offcanvas offcanvas-start bg-primary text-light sidebar-nav" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header ">
-              <h5 class="offcanvas-title " id="offcanvasExampleLabel">Navegación</h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="icon ion-md-person"></i>
+              Jane Doe
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <!--navbar-->
+
+  <!--off canvas-->
+  <div class="offcanvas offcanvas-start bg-primary text-light sidebar-nav" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header ms-auto ">
+
+      <button type="button" class="btn-close text-reset btn-light" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <nav class="navbar-dark ">
+        <ul class="navbar-nav">
+          <li>
+            <div class="small fw-bold text-uppercase px-3">
+              NAVEGACIÓN
             </div>
-            <div class="offcanvas-body">
-              <div class="menu">
-                <a href="#" class="nav-link active d-block text-light p-3"><i
-                        class="icon ion-md-apps m-2 lead"></i>Inicio</a>
-                <a href="#" class="nav-link active d-block text-light p-3"><i class="icon ion-md-medical m-2"></i>Módulo
-                    1</a>
-                <a href="#" class="nav-link active d-block text-light p-3"><i class="icon ion-md-medical m-2"></i>Módulo
-                    2</a>
-                <a href="#" class="nav-link active d-block text-light p-3"><i class="icon ion-md-medical m-2"></i>Módule
-                    3</a>
-                <a href="#" class="nav-link active d-block text-light p-3"><i class="icon ion-md-medical m-2"></i>Módulo
-                    4</a>
-            
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-3 active" aria-current="page">
+              <span class="me-2">
+                <i class="icon ion-md-apps m-2 lead"></i>
+              </span>
+              <span>Inicio</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3 active">
+              <span class="me-2">
+                <i class="icon ion-md-medical m-2"></i>
+              </span>
+              <span>Módulo 1</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3 active">
+              <span class="me-2">
+                <i class="icon ion-md-medical m-2"></i>
+              </span>
+              <span>Módulo 2</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3 active">
+              <span class="me-2">
+                <i class="icon ion-md-medical m-2"></i>
+              </span>
+              <span>Módulo 3</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-3 active">
+              <span class="me-2">
+                <i class="icon ion-md-medical m-2"></i>
+              </span>
+              <span>Módulo 4</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!--off canvas-->
+  <main class="nt-5 pt-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-nd-12 fw-bold fs-3">Inicio</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
           </div>
-        <!--off canvas-->
+        </div>
+      </div>
+    </div>
+  </main>
 
 
 
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
