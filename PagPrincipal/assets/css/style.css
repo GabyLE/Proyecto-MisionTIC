@@ -1,0 +1,65 @@
+:root{
+    --primary: #303f9f;
+    --light: #c5c4e9;
+    --grey: #757575;
+    --accent: #ffc107;
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 56px
+}
+
+
+body {
+    overflow: auto !important;
+}
+
+.sidebar-nav{
+    width: var(--offcanvas-width);
+    transform: none;
+    top: var(--topNavbarHeight);
+    height: calc(100% - var(--topNavbarHeight));
+}
+
+.bg-primary{ background-color: var(--primary) !important;}
+
+.btn-primary {
+    background-color: var(--accent);
+    border: var(--accent);
+}
+
+.btn-light {
+    color: var(--light);
+}
+
+.card:active,
+.card:focus,
+.card:hover {
+    background-color: #bdd10c;
+}
+
+.card {
+    width: 18rem;
+}
+
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgba(8, 8, 8, 0.288);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    text-decoration: underline;
+  }
