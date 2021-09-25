@@ -1,34 +1,78 @@
 :root{
-    --primary: #303f9f;
+    --darkprimary: #303f9f;
+    --primary: #3F51B5;
     --light: #c5c4e9;
     --grey: #757575;
     --accent: #ffc107;
-    --offcanvas-width: 270px;
-    --topNavbarHeight: 56px
 }
 
+/* #body {
+	overflow: hidden;
+} */
 
-body {
-    overflow: auto !important;
+#sidebar-wrapper {
+	width: 15rem;
+	min-height: 100vh;
+	background-color: var(--darkprimary);
+	color: #fff;
+	/* overflow-y: hidden; */
+}
+/* 
+#content-wraper {
+	overflow: hidden;
+} */
+
+#sidebar-heading {
+	padding: 3rem;
+	text-align: center;
 }
 
-.sidebar-nav{
-    width: var(--offcanvas-width);
-    transform: none;
-    top: var(--topNavbarHeight);
-    height: calc(100% - var(--topNavbarHeight));
+#sidebar-wrapper .fas,
+#sidebar-wrapper .icon {
+	padding-right: 1rem;
 }
 
-.bg-primary{ background-color: var(--primary) !important;}
+.list-group-item {
+	background-color: transparent;
+	color: #fff;
+	border: 1px solid #fff;
+	width: 15rem;
+}
+
+/* .bg-primary{ background-color: var(--darkprimary) !important;} */
 
 .btn-primary {
     background-color: var(--accent);
     border: var(--accent);
 }
 
-.btn-light {
-    color: var(--light);
+#content {
+	/* overflow-y: auto; */
+	height: 100vh;
+	padding-bottom: 5rem;
 }
+
+.card {
+    width: 18rem;
+    border: var(--darkprimary)
+}
+
+@media (max-width: 768px) {
+	#sidebar-wrapper {
+		margin-left: -15rem;
+	}
+
+	#sidebar-wrapper.toggled {
+		margin-left: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	#sidebar-wrapper.toggled {
+		margin-left: -15rem;
+	}
+}
+
 
 .card:active,
 .card:focus,
@@ -38,28 +82,5 @@ body {
 
 .card {
     width: 18rem;
+    border: var(--darkprimary)
 }
-
-a:link {
-    color: green;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:visited {
-    color: pink;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: rgba(8, 8, 8, 0.288);
-    background-color: transparent;
-    text-decoration: underline;
-  }
-  
-  a:active {
-    color: rgb(255, 255, 255);
-    background-color: transparent;
-    text-decoration: underline;
-  }
