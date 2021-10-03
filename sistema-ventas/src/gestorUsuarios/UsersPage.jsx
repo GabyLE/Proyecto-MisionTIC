@@ -5,7 +5,7 @@ function UsersPage () {
     return (
         <Fragment>
             <div id="content-wrapper" className="w-100">
-            <HeaderComponent/>
+            <HeaderComponent currentUser = "Gabriela López"/>
             <div class="container">
                     <div class="mt-5"></div>
                     <div class="table-wrapper">
