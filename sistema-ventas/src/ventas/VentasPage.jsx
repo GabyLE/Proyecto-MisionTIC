@@ -12,7 +12,7 @@ function VentasPage() {
             <div id="content-wrapper" className="w-100">
                 <HeaderComponent currentUser = "Gabriela López"/>
                 <div id="content" className="container-fluid d-flex flex-column ">
-                    <h5 id ="title" >Módulo de Administración de Ventas</h5>
+                    <h4 id ="title" >Módulo de Administración de Ventas</h4>
                     <nav>
                         <div className="nav nav-tabs" id="nav-tab" role="tablist">
                             <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Listado de Ventas</button>

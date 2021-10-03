@@ -12,9 +12,9 @@ function RegistroProdutosComponent() {
                 <input type="text" size="30" name="Valor Unitario" id="Valor Unitario" value="" /><br />
                 <label for="Estado">Estado:</label>
                 <select>
-                    <option value="Disponible">Disponible
-                    </option><option value="No Disponible">No Disponible
-                    </option></select>
+                    <option value="Disponible">Disponible</option>
+                    <option value="No Disponible">No Disponible</option>
+                </select>
             </form>
             <br />
             <input type="submit" value="Guardar" name="Guardar" style="width: 86px;" />

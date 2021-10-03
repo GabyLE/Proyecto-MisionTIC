@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import HeaderComponent from '../shared/components/header/HeaderComponent';
 import ListProductsComponent from "../listadoProductos/ListProductsComponent";
-// import RegistroProductosComponent from "../registroProductos/RegistroProductosComponent";
+import RegistroProductosComponent from "../registroProductos/RegistroProductosComponent";
+import './productosStyles.css';
 
 
 function ProductosPage () {
