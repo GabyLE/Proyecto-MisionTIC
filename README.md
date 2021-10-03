@@ -1,5 +1,5 @@
 ﻿# Proyecto-MisionTIC
-Proyecto de Desarrollo  Software del Grupo 17: Se propone analizar, diseñar y construir una aplicación software que permita controlar las ventas físicas y virtuales de una empresa de manufactura y hacerles el correspondiente seguimiento.
+Proyecto de Desarrollo  Software del Grupo 17: Se propone analizar, diseñar y construir una aplicación de software que permita realizar el seguimiento de las ventas de un producto y/o servicio en una empresa (cada equipo podrá acordar con el tutor el tipo de productos y/o servicios que vende la empresa) y hacerles el correspondiente seguimiento.
 
 Equipo Los Ingenieros 17:
 
@@ -20,3 +20,6 @@ DESARROLLADOR
 Soy Yerman A. Hernandez Saenz, nací y resido en la ciudad de Ibagué - Tolima.
 Ingeniero de Sistemas y especialista en Auditoria Integral y Revisoria Fiscal.
 Me desempeño como docente de la UNAD y evaluador de competencias laborales de la ILO
+
+ADMINISTRADOR BD
+Soy Jose Fernando, nacido en Barranquilla. Actualmente vivo en Cereté, Córdoba. Estudié ing. electrónica y relicé un diplomado en telecomunicaciones en la UPB Monteria, Tecnólogo en gestión redes de datos y maantenimiento de equipos. Realizo soporte técnico, medio tiempo.
