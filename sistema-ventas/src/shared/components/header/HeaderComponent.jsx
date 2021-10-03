@@ -7,7 +7,7 @@ function HeaderComponent (props){
 	let currentUser  = props.currentUser;
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 				<div class="container-fluid">
 					{/* sidebar trigger */}
 					{/* <button class="btn btn-primary" onclick="toggle()">

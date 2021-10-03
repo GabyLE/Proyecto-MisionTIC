@@ -6,21 +6,18 @@
     --accent: #ffc107;
 }
 
-/* #body {
+body {
 	overflow: hidden;
-} */
+  }
 
 #sidebar-wrapper {
 	width: 15rem;
 	min-height: 100vh;
 	background-color: var(--darkprimary);
 	color: #fff;
-	/* overflow-y: hidden; */
+	overflow-x: hidden;
 }
-/* 
-#content-wraper {
-	overflow: hidden;
-} */
+
 
 #sidebar-heading {
 	padding: 3rem;
@@ -47,7 +44,7 @@
 }
 
 #content {
-	/* overflow-y: auto; */
+	overflow-y: auto;
 	height: 100vh;
 	padding-bottom: 5rem;
 }

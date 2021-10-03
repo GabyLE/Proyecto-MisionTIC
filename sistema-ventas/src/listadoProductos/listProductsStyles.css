@@ -5,6 +5,12 @@
     --grey: #757575;
     --accent: #ffc107;
 }
+body {
+    color: #566787;
+    background: #f5f5f5;
+    /* font-family: 'Varela Round', sans-serif;
+    font-size: 13px; */
+}
 .table-wrapper {
     background: #fff;
     padding: 20px 25px;
@@ -45,4 +51,3 @@
     font-size: 21px;
     margin-right: 5px;
 }
-
