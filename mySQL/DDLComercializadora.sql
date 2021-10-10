@@ -2,7 +2,19 @@ DROP DATABASE IF EXISTS Comercializadora;
 CREATE DATABASE Comercializadora;
 USE Comercializadora;
 
-/* Crear tabla Marca */
+/* Crear tabla Estado */
+CREATE TABLE Estado( 
+	Id boolean NOT NULL, 
+	CONSTRAINT pkEstado_Id PRIMARY KEY (Id),
+	Estado VARCHAR(50) NOT NULL
+    );
+
+/* Crear indice para ESTADO
+	ordenado por ESTADO */
+CREATE UNIQUE INDEX ixEstado_Estado
+	ON Estado(Estado);
+
+/* Crear tabla Rol */
 CREATE TABLE Rol( 
 	Id int NOT NULL, 
 	CONSTRAINT pkRol_Id PRIMARY KEY (Id),

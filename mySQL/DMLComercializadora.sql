@@ -3,6 +3,9 @@
 INSERT INTO Rol (Id, Rol) VALUES(1, 'Administrador');
 INSERT INTO Rol (Id, Rol) VALUES(2, 'Vendedor');
 
+INSERT INTO Estado (Id, Estado) VALUES(true, 'Autorizado');
+INSERT INTO Estado (Id, Estado) VALUES(false, 'No Autorizado');
+
 INSERT INTO Marca(Id, Marca) VALUES( 1,'Prentice Hall');
 INSERT INTO Marca(Id, Marca) VALUES( 2,'Mc Graw Hill');
 INSERT INTO Marca(Id, Marca) VALUES( 3,'Editorial Televisa - TV y Novelas');
