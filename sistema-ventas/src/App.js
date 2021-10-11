@@ -5,6 +5,7 @@ import HomePage from './home/HomePage';
 import SidebarComponent from './shared/components/sidebar/SidebarComponent';
 import UsersPage from './gestorUsuarios/UsersPage';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import HeaderComponent from './shared/components/header/HeaderComponent';
 
 function App() {
   return (

@@ -11,6 +11,28 @@ let Usuario = function(usuario) {
     this.activo = usuario.Activo;
 }
 
+//Metodo que valida las credenciales de un usuario
+Usuario.validarAcceso = (usuario, clave, resultado) => {
+    sql.query("CALL spValidarAccesoUsuario( ?, ?);",
+        [usuario, clave], (err, res) => {
+            //Verificar si hubo error ejecutando la consulta
+            if (err) {
+                console.log("Error validando acceso:", err);
+                resultado(err, null);
+                return;
+            }
+            //La consulta devuelve resultados
+            if (res.length && res[0].length) {
+                console.log("Usuario encontrado :", res[0]);
+                resultado(null, res[0]);
+                return;
+            }
+            //No se encontraron registros
+            resultado({ tipo: "No encontrado" }, null);
+            console.log("Credenciales no válidas");
+        });
+}
+
 // Metodo que obtiene la lista de usuarios
 Usuario.listar = (resultado) => {
     sql.query('CALL spListarUsuarios;', (err, res) => {

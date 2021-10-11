@@ -2,9 +2,9 @@ import React, { Fragment } from "react";
 import './sidebarStyles.css';
 import {Link} from 'react-router-dom';
 
-function SidebarComponent () {
+const SidebarComponent = ({open, cerrar}) => {
     return (
-        <div id="sidebar-wrapper" className="overflow-hidden">
+        <div id="sidebar-wrapper" open = {open} onClose={cerrar} className="overflow-hidden">
 			<div id="sidebar-heading" class="fw-bold">NAVEGACIÓN</div>
 			<div class="list-group list-group-flush">
 				<Link to="/" class="list-group-item list-group-item-action"><i class="fas fa-home"></i>Inicio</Link>
