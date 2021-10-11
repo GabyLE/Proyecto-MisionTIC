@@ -72,6 +72,10 @@ const Usuarios = () => {
         obtenerUsuarios();
     }
 
+    const agregar = () => {
+        
+    }
+
     return(
         <div>
             <center>
@@ -80,7 +84,15 @@ const Usuarios = () => {
                 </h1>
             </center>
             <div style={{ height: 500, width: '100%' }}>
-               
+            <Button className={estilos.botonAgregar} onClick={agregar}>
+                    Agregar
+                </Button>
+                <Button className={estilos.botonModificar}>
+                    Actualizar
+                </Button>
+                <Button className={estilos.botonEliminar}>
+                    Eliminar
+                </Button>
                 <DataGrid
                     rows={usuarios}
                     columns={columnas}

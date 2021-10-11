@@ -72,6 +72,31 @@ Usuario.actualizar = (usuario, resultado) => {
     
 }
 
+// Metodo que agrega un registro
+Usuario.agregar = (usuario, resultado) => {
+    sql.query('CALL spActualizarUsuario(?,?,?,?,?);',
+    [usuario.Id, usuario.Usuario, usuario.Nombre, usuario.Clave, usuario.Rol],
+    (err, res) => {
+        // verificar si hubo error ejectutando la consulta
+        if (err) {
+            console.log("Error actualizando moneda:", err);
+            resultado(err, null);
+            return;
+        }
+        // La consulta no efectó registros
+        if (res.affectedRows == 0) {
+            // No se encontraron registros
+            resultado({tipo: "No encontrado"}, null);
+            return;
+        }
+
+        console.log("Usuario actualizado: ", usuario);
+        resultado(null, {usuario});
+    }
+    );
+    
+}
+
 // Metodo que elimina un registro
 Usuario.eliminar = (idUsuario, resultado) => {
     sql.query('DELETE FROM Usuario WHERE Id = ?', idUsuario, (err, res) => {
