@@ -36,7 +36,7 @@ CREATE TABLE Usuario(
     IdRol int NOT NULL,
 	CONSTRAINT fkUsuario_IdRol FOREIGN KEY (IdRol)
 		REFERENCES Rol(Id),
-    Activo BOOL NOT NULL,
+    Estado BOOL NOT NULL,
 	Foto MEDIUMBLOB NULL
 	);
     
@@ -147,7 +147,8 @@ CREATE TABLE Venta(
     Cuenta varchar(50) NOT NULL,
 	IdFormaPago int NOT NULL, 
 	CONSTRAINT fkPedido_IdFormaPago FOREIGN KEY (IdFormaPago) REFERENCES FormaPago (Id),
-	Factura VARCHAR(50) NULL
+	Factura VARCHAR(50) NULL,
+    IdUsuario int NOT NULL
 	);
     
 /* Crear tabla VENTADETALLE */
