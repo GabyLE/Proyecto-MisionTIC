@@ -15,7 +15,7 @@ DROP PROCEDURE IF EXISTS spActualizarVenta;
 DELIMITER //
 CREATE PROCEDURE spListarUsuarios()
 BEGIN
-	SELECT Id, Usuario, Nombre, Clave, IdRol, Activo
+	SELECT Id, Usuario, Nombre, Clave, IdRol, Estado
 		FROM Usuario
 		ORDER BY Usuario;
 END//
@@ -24,13 +24,13 @@ END//
 CREATE PROCEDURE spActualizarUsuario(
 IN IdUsuario int,
 IN IdRol int,
-IN Activo bool
+IN Estado bool
 )
 BEGIN
 		UPDATE Usuario
 			SET 
 			IdRol = IdRol,
-            Activo = Activo
+            Estado = Estado
 			WHERE Id =  IdUsuario;
 END//
 
@@ -80,7 +80,7 @@ CREATE PROCEDURE spListarVentas()
 BEGIN
 	SELECT *
 		FROM vVenta
-		ORDER BY Fecha DESC;
+		ORDER BY Id;
 END//
 
 -- ** Procedimiento almacenado para agregar o modificar VENTA y VENTADETALLE
