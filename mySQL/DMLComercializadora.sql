@@ -212,112 +212,112 @@ INSERT INTO FormaPago(Id, FormaPago, Credito) VALUES( 3,'E-Gold', 0);
 INSERT INTO FormaPago(Id, FormaPago, Credito) VALUES( 4,'Cheque Electrónico', 1);
 INSERT INTO FormaPago(Id, FormaPago, Credito) VALUES( 5,'Cuenta Corriente', 0);
 
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(1, 2, '2020-10-15', '5480265364063690', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(2, 3, '2020-10-17', '4024007192835063', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(3, 4, '2020-10-17', '5322470583654459', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(4, 5, '2020-10-20', '4716224418171156', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(5, 5, '2020-10-21', '4485239294653977', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(6, 6, '2020-10-21', '5407588476128022', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(7, 7, '2020-10-22', '5584828370997642', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(8, 8, '2020-10-25', '4916679191543368', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(9, 9, '2020-10-28', '5424670435594046', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(10, 10, '2020-10-31', '5573339379818733', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(11, 9, '2020-10-30', '5424670435594046', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(12, 11, '2020-11-05', '4556027864324358', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(13, 12, '2020-11-06', '5535958750087993', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(14, 13, '2020-11-06', '5392672481120617', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(15, 14, '2020-11-09', '4916780795546821', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(16, 15, '2020-11-10', '4916707320622462', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(17, 16, '2020-11-12', '4539940783746992', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(18, 17, '2020-11-12', '4539575785954606', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(19, 18, '2020-11-19', '4485557566621954', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(20, 19, '2020-11-22', '4485557566621954', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(21, 20, '2020-11-25', '5505579633229747', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(22, 9, '2020-11-30', '5424670435594046', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(23, 21, '2020-11-30', '5299158413858742', 3, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(24, 2, '2020-12-05', '5480265364063690', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(25, 3, '2020-12-07', '4024007192835063', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(26, 4, '2020-12-08', '5322470583654459', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(27, 5, '2020-12-10', '4716224418171156', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(28, 6, '2020-12-11', '5407588476128022', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(29, 7, '2020-12-12', '5584828370997642', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(30, 8, '2020-12-15', '4916679191543368', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(31, 9, '2020-12-18', '5424670435594046', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(32, 10, '2020-12-21', '5573339379818733', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(33, 16, '2020-12-22', '4539940783746992', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(34, 17, '2020-12-22', '4539575785954606', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(35, 18, '2020-12-24', '4485557566621954', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(36, 19, '2020-12-26', '4485557566621954', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(37, 20, '2020-12-26', '5505579633229747', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(38, 9, '2020-12-30', '5424670435594046', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(39, 21, '2020-12-30', '5299158413858742', 3, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(40, 8, '2021-01-15', '4916679191543368', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(41, 2, '2021-01-05', '5480265364063690', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(42, 10, '2021-01-21', '5573339379818733', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(43, 16, '2021-01-22', '4539940783746992', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(44, 17, '2021-01-22', '4539575785954606', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(45, 18, '2021-01-24', '4485557566621954', 2, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(46, 19, '2021-01-26', '4485557566621954', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(47, 20, '2021-01-26', '5505579633229747', 2, 3);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(48, 9, '2021-01-30', '01200677577', 5, 5);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(49, 21, '2021-01-30', '347891050625643', 2, 2);
-INSERT INTO Venta(Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES(50, 3, '2021-01-31', '370657840294903', 2, 3);
-INSERT INTO Venta (Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES (51, 21, '2021-02-01', '5299158413858742', 3, 5);	
-INSERT INTO Venta (Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)	
-	VALUES (52, 21, '2021-02-15', '5299158413858742', 3, 2);
-INSERT INTO Venta (Id, IdCliente, Fecha, Cuenta, IdFormaPago, IdUsuario)
-	VALUES (53, 21, '2021-02-25', '5299158413858742', 3, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(1, 2, '2020-10-15', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(2, 3, '2020-10-17',1, 1, 5);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(3, 4, '2020-10-17',5, 2, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(4, 5, '2020-10-20',2, 5, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(5, 5, '2020-10-21', 4, 7,3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(6, 6, '2020-10-21', 10, 3, 5);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(7, 7, '2020-10-22',15, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(8, 8, '2020-10-25',21, 4, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(9, 9, '2020-10-28', 14, 3, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(10, 10, '2020-10-31', 5, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(11, 9, '2020-10-30', 24, 3, 5);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(12, 11, '2020-11-05', 30, 3, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(13, 12, '2020-11-06', 23, 7, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(14, 13, '2020-11-06',26, 4, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(15, 14, '2020-11-09',28, 3, 5);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(16, 15, '2020-11-10', 16, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(17, 16, '2020-11-12', 19, 5, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(18, 17, '2020-11-12', 16, 3, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(19, 18, '2020-11-19', 13, 3, 5);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(20, 19, '2020-11-22', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(21, 20, '2020-11-25', 3, 3, 5);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(22, 9, '2020-11-30', 19, 3, 3);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(23, 21, '2020-11-30', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(24, 2, '2020-12-05', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(25, 3, '2020-12-07', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(26, 4, '2020-12-08', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(27, 5, '2020-12-10',24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(28, 6, '2020-12-11', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(29, 7, '2020-12-12', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(30, 8, '2020-12-15', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(31, 9, '2020-12-18', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(32, 10, '2020-12-21',24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(33, 16, '2020-12-22',24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(34, 17, '2020-12-22', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(35, 18, '2020-12-24',24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(36, 19, '2020-12-26', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(37, 20, '2020-12-26', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(38, 9, '2020-12-30', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(39, 21, '2020-12-30', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(40, 8, '2021-01-15', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(41, 2, '2021-01-05', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(42, 10, '2021-01-21', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(43, 16, '2021-01-22', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(44, 17, '2021-01-22', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(45, 18, '2021-01-24', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(46, 19, '2021-01-26', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(47, 20, '2021-01-26', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(48, 9, '2021-01-30', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(49, 21, '2021-01-30', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES(50, 3, '2021-01-31',24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES (51, 21, '2021-02-01', 24, 3, 2);	
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES (52, 21, '2021-02-15', 24, 3, 2);
+INSERT INTO Venta(Id, IdCliente, Fecha, IdProducto, Cantidad, IdUsuario)
+	VALUES (53, 21, '2021-02-25',24, 3, 2);
 
    
 INSERT INTO VentaDetalle (IdVenta, IdProducto, Cantidad, ValorUnitario)

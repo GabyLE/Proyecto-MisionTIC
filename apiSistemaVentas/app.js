@@ -15,6 +15,7 @@ app.use(express.json());
 // app.use(cors())
 
 require("./routes/usuario.rutas")(app);
+require("./routes/venta.rutas")(app);
 
 
 app.listen(puerto, () => {

@@ -144,24 +144,26 @@ CREATE TABLE Venta(
 	IdCliente int NOT NULL, 
 	CONSTRAINT fkPedido_IdCliente FOREIGN KEY (IdCliente) REFERENCES Cliente (Id),
     Fecha datetime NOT NULL,
-    Cuenta varchar(50) NOT NULL,
-	IdFormaPago int NOT NULL, 
-	CONSTRAINT fkPedido_IdFormaPago FOREIGN KEY (IdFormaPago) REFERENCES FormaPago (Id),
+    IdProducto int NOT NULL,
+    CONSTRAINT fkVentaDetalle_IdProducto FOREIGN KEY (IdProducto)
+		REFERENCES Producto(Id),
+    Cantidad FLOAT NULL,
 	Factura VARCHAR(50) NULL,
     IdUsuario int NOT NULL
 	);
     
 /* Crear tabla VENTADETALLE */
+
 CREATE TABLE VentaDetalle( 
 	IdVenta int NOT NULL,
 	CONSTRAINT fkVentaDetalle_IdVenta FOREIGN KEY (IdVenta)
 		REFERENCES Venta(Id),
 	IdProducto int NOT NULL,
-	CONSTRAINT fkVentaDetalle_IdProducto FOREIGN KEY (IdProducto)
+	FOREIGN KEY (IdProducto)
 		REFERENCES Producto(Id),
 	CONSTRAINT pkVenta PRIMARY KEY (IdVenta, IdProducto),
 	Cantidad FLOAT NULL,
-    ValorUnitario FLOAT NOT NULL,
+    ValorUnitario FLOAT NULL,
     Iva FLOAT NULL
 	);
     
