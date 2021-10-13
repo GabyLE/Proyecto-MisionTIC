@@ -10,9 +10,9 @@ app.get('/', (req, res) => {
 // var bodyParser = require('body-parser');
 // app.use(bodyParser.json());
 app.use(express.json());
-// //Cargar libreria para habilitar cors
-// const cors = require('cors')
-// app.use(cors())
+//Cargar libreria para habilitar cors
+const cors = require('cors')
+app.use(cors())
 
 require("./routes/usuario.rutas")(app);
 require("./routes/venta.rutas")(app);

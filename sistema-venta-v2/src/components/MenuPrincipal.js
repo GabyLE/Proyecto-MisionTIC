@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Button, IconButton, Box, Drawer, Typography, List, ListItem, ListItemText} from '@material-ui/core';
+import { AppBar, Toolbar, Button, IconButton, Box, Drawer, Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ModalLogin from './login/Login';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListSubheader from '@mui/material/ListSubheader';
+
+
+// ICONS
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import HomeIcon from '@mui/icons-material/Home';
+import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 
 const obtenerEstilos = makeStyles(
@@ -66,16 +75,31 @@ const MenuPrincipal = () => {
             role="presentation"
             onClick={mostrarMenu(false)}
         >
-            <List>
-                {
-                    ['Home','Ventas', 'Productos', 'Usuarios'].map((texto, indice) => (
-                        <ListItem button component="a" href={`/${texto}`} >
-                        
-                            <ListItemText primary={texto} />
-                        </ListItem>
-                    )
-                    )
-                }
+            <List subheader={<ListSubheader>Navegación</ListSubheader>}>
+                <ListItem button component="a" href={"/Home"} >
+                    <ListItemIcon>
+                        <HomeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Home" />
+                </ListItem>
+                <ListItem button component="a" href={"/Ventas"} >
+                    <ListItemIcon>
+                        <ReceiptIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Ventas" />
+                </ListItem>
+                <ListItem button component="a" href={"/Productos"} >
+                    <ListItemIcon>
+                        <StoreMallDirectoryIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Productos" />
+                </ListItem>
+                <ListItem button component="a" href={"/Usuarios"} >
+                    <ListItemIcon>
+                        <PeopleAltIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Usuarios" />
+                </ListItem>
             </List>
         </Box>
     )
@@ -92,7 +116,7 @@ const MenuPrincipal = () => {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" className = {estilos.titulo}> 
+                <Typography variant="h6" className={estilos.titulo}>
                     Sistema de Ventas
                 </Typography>
                 <span>
@@ -111,9 +135,9 @@ const MenuPrincipal = () => {
             </Toolbar>
             <ModalLogin open={estadoModal} cerrar={cerraModal} />
             <Drawer
-                anchor = "left"
-                open = {estadoMenu}
-                onClose = {mostrarMenu(false)}
+                anchor="left"
+                open={estadoMenu}
+                onClose={mostrarMenu(false)}
             >
                 {menu()}
             </Drawer>

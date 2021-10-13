@@ -7,8 +7,8 @@ INSERT INTO Estado (Id, Estado) VALUES(true, 'Autorizado');
 INSERT INTO Estado (Id, Estado) VALUES(false, 'No Autorizado');
 
 INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (1, 'gabyle', 'Gabriela López Esquivel', '12345', 1, true);
-INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (2, 'schilito', 'Sandra Chilito', '6789', 2, true);
-INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (3, 'danielcar2na', 'Daniel Cardona', '12345', 2, true);
+INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (2, 'schilito', 'Sandra Chilito', '1234', 2, true);
+INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (3, 'danielcar2na', 'Daniel Cardona', '1234', 2, true);
 INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (4, 'ysaenz07', 'Yerman A Hernandez Saenz', '6789', 1, true);
 INSERT INTO Usuario (Id, Usuario, Nombre, Clave, IdRol, Estado) VALUES (5, 'jflop04', 'Jose Fernando López', '12345', 2, true);
 
@@ -163,48 +163,48 @@ INSERT INTO Ciudad (Id, Ciudad, IdPais) VALUES(   44, 'LIVERPOOL', 22);
 INSERT INTO Ciudad (Id, Ciudad, IdPais) VALUES(   45, 'MADRID', 23);
 INSERT INTO Ciudad (Id, Ciudad, IdPais) VALUES(   46, 'BARCELONA', 23);
     
-INSERT INTO Cliente (Id, Nombre,  IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(1, 'Edyth Tiner', 25, '(1)(718)1237894', 'Blvd  Astoria 11103', 'edyth1234@hotmail.com', 'edtyht', '');
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave)
-	VALUES(2, 'Marco Eades', 46, '(34)(93)9876543', 'Passeig del Taulat 278', 'meades789@gmail.com', 'meades', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(3, 'Marcos Calero', 3, '(57)(4)2367891', 'Calle 94 # 56-17', 'marcal@yahoo.es', 'marcal', '');
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(4, 'Mitch Tubbs', 15, '(1)(418)45612389', '128 King Henry s Rd', 'mt9999@gmail.com', 'mitchtubbs', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(5, 'Shella Jablonowski', 43, '(44)(20)76534510', '123 Time Square', 'shellj@hotmail.com', 'shellJ', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(6, 'Neida Hebron', 29, '(1)(412)4556677', '1331 Pennsylvania Ave', 'nehe1989@gmail.com', 'nehe1989', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(7, 'Mariel Spiva', 6, '(54)(11)9182735', 'Florida 1005', 'spiva_m@gmail.com', 'spiva', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(8, 'Jessenia Colombo', 11, '(55)(21)5463721', 'Avenida Atlântica, 2600', 'jessy94@yahoo.com', 'jessy', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(9, 'Lura Purdy', 16, '(1)(604)1526378', '1128 W Hastings', 'lupu1995@.gmailcom', 'lurap', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(10, 'Fern Brannen', 46, '(34)(93)2938475', 'Calle Delicias 42', 'fernb@.hotmailcom', 'fern', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(11, 'Chrystal Lavery', 44, '(44)(151)6172834', '1 Queen Square', 'chrys1989@hotmail.com', 'chrys', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(12, 'Ricardo Sensini', 20, '(56)(9)9878767', 'Presidente Kennedy 5741', 'rsensini@yahoo.com', 'rise', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(13, 'Glennie Olivares', 32, '(52)(55)93827160', 'Paseo de la Reforma 276 Juárez', 'glenno@gmail.com', 'glenn', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(14, 'Grover Ferron', 26, '(1)(415)8964738', '780 Mission St', 'grover1122@hotmail.com', 'gferron', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(15, 'Cesar Guzman', 38, '(51)(1)2341234', 'Malecón de la Reserva 615', 'cesarin2000@hotmail.com', 'cesarin', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(16, 'Wayne Barriere', 27, '(1)(213)5847361', '5855 W Century Blvd', 'w_barriere@gmail.com', 'wayneb', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(17, 'Sheba Colyer', 28, '(1)(305)4327321', '1633 N Bayshore Dr,', 'shecol@yahoo.com', 'shecol', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(18, 'Genaro Becerril', 5, '(57)(5)2284576', 'Calle 85 # 50-25', 'genabece@gmail.com', 'genaro', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(19, 'Sandra Walworth', 36, '(507)(2)4433552', '52nd St. and Ricardo Arias, Av Ricardo Arango', 'sandraw2010@hotmail.com', 'sandrawalw', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(20, 'Gertha Agena', 25, '(1)(212)3174282', '1335 Avenue of the Americas', 'agenag@hotmail.com', 'agena', ''); 
-INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave) 
-	VALUES(21, 'Isabela Santodomingo', 2, '(57)(1)2667788', 'Avenida El Dorado', 'lasprefierenbrutas@hotmail.com', 'isabela', ''); 
+INSERT INTO Cliente (Id, Nombre,  IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(1, 'Edyth Tiner', 25, '(1)(718)1237894', 'Blvd  Astoria 11103', 'edyth1234@hotmail.com', 'edtyht', '', '12123123');
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(2, 'Marco Eades', 46, '(34)(93)9876543', 'Passeig del Taulat 278', 'meades789@gmail.com', 'meades', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(3, 'Marcos Calero', 3, '(57)(4)2367891', 'Calle 94 # 56-17', 'marcal@yahoo.es', 'marcal', '', '12123123');
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(4, 'Mitch Tubbs', 15, '(1)(418)45612389', '128 King Henry s Rd', 'mt9999@gmail.com', 'mitchtubbs', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(5, 'Shella Jablonowski', 43, '(44)(20)76534510', '123 Time Square', 'shellj@hotmail.com', 'shellJ', '', '722152656'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(6, 'Neida Hebron', 29, '(1)(412)4556677', '1331 Pennsylvania Ave', 'nehe1989@gmail.com', 'nehe1989', '', '12123123'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(7, 'Mariel Spiva', 6, '(54)(11)9182735', 'Florida 1005', 'spiva_m@gmail.com', 'spiva', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(8, 'Jessenia Colombo', 11, '(55)(21)5463721', 'Avenida Atlântica, 2600', 'jessy94@yahoo.com', 'jessy', '', '722152656'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(9, 'Lura Purdy', 16, '(1)(604)1526378', '1128 W Hastings', 'lupu1995@.gmailcom', 'lurap', '', '12123123'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(10, 'Fern Brannen', 46, '(34)(93)2938475', 'Calle Delicias 42', 'fernb@.hotmailcom', 'fern', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(11, 'Chrystal Lavery', 44, '(44)(151)6172834', '1 Queen Square', 'chrys1989@hotmail.com', 'chrys', '', '12123123'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(12, 'Ricardo Sensini', 20, '(56)(9)9878767', 'Presidente Kennedy 5741', 'rsensini@yahoo.com', 'rise', '', '722152656'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(13, 'Glennie Olivares', 32, '(52)(55)93827160', 'Paseo de la Reforma 276 Juárez', 'glenno@gmail.com', 'glenn', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(14, 'Grover Ferron', 26, '(1)(415)8964738', '780 Mission St', 'grover1122@hotmail.com', 'gferron', '', '12123123'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(15, 'Cesar Guzman', 38, '(51)(1)2341234', 'Malecón de la Reserva 615', 'cesarin2000@hotmail.com', 'cesarin', '', '722152656'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(16, 'Wayne Barriere', 27, '(1)(213)5847361', '5855 W Century Blvd', 'w_barriere@gmail.com', 'wayneb', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(17, 'Sheba Colyer', 28, '(1)(305)4327321', '1633 N Bayshore Dr,', 'shecol@yahoo.com', 'shecol', '', '12123123'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(18, 'Genaro Becerril', 5, '(57)(5)2284576', 'Calle 85 # 50-25', 'genabece@gmail.com', 'genaro', '', '722152656'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(19, 'Sandra Walworth', 36, '(507)(2)4433552', '52nd St. and Ricardo Arias, Av Ricardo Arango', 'sandraw2010@hotmail.com', 'sandrawalw', '', '245628765'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(20, 'Gertha Agena', 25, '(1)(212)3174282', '1335 Avenue of the Americas', 'agenag@hotmail.com', 'agena', '', '12123123'); 
+INSERT INTO Cliente (Id, Nombre, IdCiudad, Telefono, Direccion, Correo, Usuario, Clave, Documento) 
+	VALUES(21, 'Isabela Santodomingo', 2, '(57)(1)2667788', 'Avenida El Dorado', 'lasprefierenbrutas@hotmail.com', 'isabela', '', '722152656'); 
     
 INSERT INTO FormaPago(Id, FormaPago, Credito) VALUES( 1,'** Desconocido **', 0);
 INSERT INTO FormaPago(Id, FormaPago, Credito) VALUES( 2,'Tarjeta de Crédito', 1);

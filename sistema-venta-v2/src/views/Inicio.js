@@ -4,6 +4,7 @@ import { Box, Typography } from '@material-ui/core';
 import ReactPlayer from 'react-player';
 import InicioVideo from '../assets/video/cartel.mp4';
 
+
 const obtenerEstilos = makeStyles(theme => ({
     root: {
         width: '100%',
