@@ -51,10 +51,10 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
             })
             .then((res) => res.json())
             .then((json) => {
-                window.alert(json.venta);
+                window.alert(`Respuesta: ${json.venta}`);
                 cerrarFormulario();
-            }).
-            catch(function (error) {
+            })
+            .catch(function (error) {
                 window.alert(`error agregando venta [${error}]`);
             });
     }
