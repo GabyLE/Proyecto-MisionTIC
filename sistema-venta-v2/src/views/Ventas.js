@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 //import { Button } from "@material-ui/core";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModalEditar from '../components/EditarVenta/Modal';
 import Confirmacion from '../components/Confirmacion';
@@ -110,23 +109,10 @@ const theme = createTheme({
     },
 });
 
-const obtenerEstilos = makeStyles(tema => ({
-    botonAgregar: {
 
-        backgroundColor: "#FFC107",
-
-    },
-    botonModificar: {
-        backgroundColor: "#FFC107",
-    },
-    botonEliminar: {
-        borderColor: "#FFC107",
-    }
-
-}));
 
 const Ventas = () => {
-    const estilos = obtenerEstilos();
+    
 
     const [ventas, setVentas] = useState([]);
 
