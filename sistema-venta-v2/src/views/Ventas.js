@@ -1,9 +1,22 @@
-import {DataGrid} from '@material-ui/data-grid';
-import React, {useState} from 'react';
-import { Button } from "@material-ui/core";
+import { DataGrid } from '@material-ui/data-grid';
+import React, { useState } from 'react';
+//import { Button } from "@material-ui/core";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@mui/icons-material/Delete';
 import ModalEditar from '../components/EditarVenta/Modal';
 import Confirmacion from '../components/Confirmacion';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import EditIcon from '@mui/icons-material/Edit';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import SearchIcon from '@mui/icons-material/Search';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+
+
+
 
 const columnas = [
     { field: "id", headerName: "ID Venta", width: 135 },
@@ -12,25 +25,25 @@ const columnas = [
     { field: "valorUnitario", headerName: "Valor Unitario", width: 170 },
     { field: "cantidad", headerName: "Cantidad", width: 150 },
     { field: "fecha", headerName: "Fecha", width: 200 },
-    { field: "idCliente", headerName: "ID Cliente", width: 160 },
+    { field: "clienteDocumento", headerName: "Cliente ID", width: 160 },
     { field: "nombreCliente", headerName: "Cliente", width: 300 },
     { field: "nombreUsuario", headerName: "Encargado", width: 300 },
 ]
 
 var VentaL = function (id, idProducto, nombreProducto, valorUnitario,
-    cantidad, fecha, idCliente, nombreCliente, nombreUsuario) {
+    cantidad, fecha, clienteDocumento, nombreCliente, nombreUsuario) {
     this.id = id;
     this.idProducto = idProducto;
     this.nombreProducto = nombreProducto;
     this.valorUnitario = valorUnitario;
     this.cantidad = cantidad;
     this.fecha = fecha;
-    this.idCliente = idCliente;
+    this.clienteDocumento = clienteDocumento;
     this.nombreCliente = nombreCliente;
     this.nombreUsuario = nombreUsuario;
 }
 
-var VentaA = function(id, idCliente, fecha, idUsuario, idProducto, cantidad) {
+var VentaA = function (id, idCliente, clienteDocumento, fecha, idUsuario, idProducto, cantidad) {
     this.id = id;
     this.idProducto = idProducto;
     this.cantidad = cantidad;
@@ -39,22 +52,75 @@ var VentaA = function(id, idCliente, fecha, idUsuario, idProducto, cantidad) {
     this.idUsuario = idUsuario
 }
 
-const obtenerEstilos = makeStyles(theme => ({
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(1),
+        width: 'auto',
+    },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '12ch',
+            '&:focus': {
+                width: '20ch',
+            },
+        },
+    },
+}));
+
+const theme = createTheme({
+    status: {
+        danger: '#e53e3e',
+    },
+    palette: {
+        primary: {
+            main: '#FFC107',
+            darker: '#053e85',
+        },
+        neutral: {
+            main: '#64748B',
+            contrastText: '#fff',
+        },
+    },
+});
+
+const obtenerEstilos = makeStyles(tema => ({
     botonAgregar: {
-        borderRadius: 10,
+
         backgroundColor: "#FFC107",
-        fontSize: "18px"
+
     },
     botonModificar: {
-        borderRadius: 10,
         backgroundColor: "#FFC107",
-        fontSize: "18px"
     },
     botonEliminar: {
-        borderRadius: 10,
-        backgroundColor: "#ff5555",
         borderColor: "#FFC107",
-        fontSize: "18px"
     }
 
 }));
@@ -74,26 +140,26 @@ const Ventas = () => {
 
     const obtenerVentas = () => {
         // Consultar la lista de ventas desde la API
-        fetch("http://localhost:3010/ventas", {method: "get"})
-        .then((res) => res.json())
-        .then((json) => {
-            var ventasT = [];
-            json.map((item) => {
-                ventasT.push(new VentaL(
-                    item.Id,
-                    item.IdProducto,
-                    item.NombreProducto,
-                    item.ValorUnitario,
-                    item.Cantidad,
-                    item.Fecha,
-                    item.IdCliente,
-                    item.NombreCliente,
-                    item.NombreUsuario
-                ));
+        fetch("http://localhost:3010/ventas", { method: "get" })
+            .then((res) => res.json())
+            .then((json) => {
+                var ventasT = [];
+                json.map((item) => {
+                    ventasT.push(new VentaL(
+                        item.Id,
+                        item.IdProducto,
+                        item.NombreProducto,
+                        item.ValorUnitario,
+                        item.Cantidad,
+                        item.Fecha,
+                        item.ClienteDocumento,
+                        item.NombreCliente,
+                        item.NombreUsuario
+                    ));
+                });
+                setVentas(ventasT);
+                setEstadoListado(false);
             });
-            setVentas(ventasT);
-            setEstadoListado(false);
-        });
     }
 
     if (estadoListado) {
@@ -105,7 +171,7 @@ const Ventas = () => {
     }
 
     const agregar = () => {
-        const ventaE = new VentaA(-1, "","","","","")
+        const ventaE = new VentaA(-1, "", "", "", "", "")
         setVentaEditada(ventaE);
         setEstadoModal(true);
     }
@@ -113,8 +179,8 @@ const Ventas = () => {
     const modificar = () => {
         if (ventaSeleccionada) {
             const ventaE = ventaSeleccionada;
-        setVentaEditada(ventaE);
-        setEstadoModal(true);
+            setVentaEditada(ventaE);
+            setEstadoModal(true);
         }
         else {
             window.alert("Por favor seleccione un registro");
@@ -127,10 +193,10 @@ const Ventas = () => {
             const ventaE = ventaSeleccionada;
             setVentaEditada(ventaE);
             setEstadoConfirmacion(true);
-            }
-            else {
-                window.alert("Por favor seleccione un registro");
-            }
+        }
+        else {
+            window.alert("Por favor seleccione un registro");
+        }
     }
 
     const confirmarEliminacion = () => {
@@ -139,7 +205,7 @@ const Ventas = () => {
                 method: 'delete',
             })
             .then((res) => {
-                if(res.status != 200) {
+                if (res.status != 200) {
                     throw Error(res.statusText);
                 }
                 return res.json();
@@ -147,7 +213,7 @@ const Ventas = () => {
             .then((json) => {
                 window.alert(json.message);
                 setEstadoListado(true);
-                
+
             })
             .catch(function (error) {
                 // Catch captura un error en tiempo de ejecución
@@ -163,50 +229,63 @@ const Ventas = () => {
         <div>
             <center>
                 <h1>
-                    Módulo de Ventas
+                    Gestión de Ventas
                 </h1>
             </center>
-            <div style={{ height: 500, width: '100%' }}>
-            <Button className={estilos.botonAgregar} onClick = {agregar} >
-                    Agregar
-                </Button>
-                <Button className={estilos.botonModificar} onClick = {modificar} >
-                    Modificar
-                </Button>
-                <Button className={estilos.botonEliminar} onClick = {eliminar}>
-                    Eliminar
-                </Button>
-                <DataGrid
-                    rows={ventas}
-                    columns={columnas}
-                    pageSize={7}
-                    rowsPerPageOptions={[7]}
+            <ThemeProvider theme={theme}>
+                <div style={{ height: 500, width: '100%' }}>
+                    <Stack direction="row" spacing={2} justifyContent="flex-end">
+                        <Button variant="contained" startIcon={<AddCircleIcon />} onClick={agregar} >
+                            Agregar
+                        </Button>
+                        <Button variant="contained" startIcon={<EditIcon />} onClick={modificar} >
+                            Modificar
+                        </Button>
+                        <Button variant="outlined" color="error" startIcon={<DeleteIcon />} onClick={eliminar}>
+                            Eliminar
+                        </Button>
+                        <Search>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                placeholder="Buscar"
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
+                    </Stack>
+                    <DataGrid
+                        rows={ventas}
+                        columns={columnas}
+                        pageSize={7}
+                        rowsPerPageOptions={[7]}
 
-                    onSelectionModelChange = {(idVentas) => {
+                        onSelectionModelChange={(idVentas) => {
 
-                        const ventasSeleccionadas = ventas.filter(
-                            function(fila){
-                                return fila.id == idVentas[0];
-                            }
-                        )
-                        ventaSeleccionada = ventasSeleccionadas[0];
-                    }
+                            const ventasSeleccionadas = ventas.filter(
+                                function (fila) {
+                                    return fila.id == idVentas[0];
+                                }
+                            )
+                            ventaSeleccionada = ventasSeleccionadas[0];
+                        }
 
-                    }
-                    
+                        }
 
-                />
 
-                <ModalEditar open={estadoModal} cerrar={cerrarModal} venta={ventaEditada} />
-               
-               <Confirmacion 
-               open={estadoConfirmacion} 
-               cerrar={cerrarConfirmacion}
-               titulo={"Eliminando Registro de Venta "} 
-               mensaje={"¿Está seguro?"} 
-               aceptar={confirmarEliminacion}
-               />
-            </div>
+                    />
+
+                    <ModalEditar open={estadoModal} cerrar={cerrarModal} venta={ventaEditada} />
+
+                    <Confirmacion
+                        open={estadoConfirmacion}
+                        cerrar={cerrarConfirmacion}
+                        titulo={"Eliminando Registro de Venta "}
+                        mensaje={"¿Está seguro?"}
+                        aceptar={confirmarEliminacion}
+                    />
+                </div>
+            </ThemeProvider>
         </div>
     )
 }

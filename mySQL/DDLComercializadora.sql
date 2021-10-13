@@ -108,6 +108,7 @@ CREATE TABLE Cliente(
 	Id int NOT NULL AUTO_INCREMENT, 
 	CONSTRAINT pkCliente_Id PRIMARY KEY (Id), 
 	Nombre varchar(50) NOT NULL, 
+    Documento varchar(15) NOT NULL,
 	IdCiudad int NOT NULL, 
 	CONSTRAINT fkCliente_IdCiudad FOREIGN KEY (IdCiudad) REFERENCES Ciudad (Id),
 	Telefono varchar(50) NOT NULL, 
