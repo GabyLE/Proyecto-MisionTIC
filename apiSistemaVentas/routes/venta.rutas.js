@@ -10,6 +10,9 @@ module.exports = (app) => {
     //metodo que actualiza (INSERT - UPDATE) una moneda
     app.post("/ventas", ventas.actualizar);
 
+    //metodo que busca una venta
+    app.post("/ventas/:tipo", ventas.buscar);
+
     //metodo que elimina una moneda
     app.delete("/ventas/:id", ventas.eliminar);
 

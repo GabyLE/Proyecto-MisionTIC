@@ -91,5 +91,28 @@ Venta.eliminar = (idVenta, resultado) => {
     });
 }
 
+//Metodo que obtiene un registro basado en la clave primaria
+Venta.buscar = (tipo, dato, resultado) => {
+    sql.query('CALL spBuscarVentas(?,?);', //consulta sql
+        [dato.Dato, tipo], //parametros
+        (err, res) => {
+            //Verificar si hubo error ejecutando la consulta
+            if (err) {
+                console.log("Error realizando busqueda:", err);
+                resultado(err, null);
+                return;
+            }
+            //La consulta no afectó registros
+            if (res.affectedRows == 0) {
+                //No se encontraron registros
+                resultado({ tipo: "No encontrado" }, null);
+                return;
+            }
+
+            console.log("Resultado busqueda :", res[0]);
+            resultado(null, res[0] );
+
+        });
+}
 
 module.exports = Venta;

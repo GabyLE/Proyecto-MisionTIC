@@ -144,7 +144,7 @@ CREATE TABLE Venta(
 	CONSTRAINT pkVenta_Id PRIMARY KEY (Id),
 	IdCliente int NOT NULL, 
 	CONSTRAINT fkPedido_IdCliente FOREIGN KEY (IdCliente) REFERENCES Cliente (Id),
-    Fecha datetime NOT NULL,
+    Fecha date NOT NULL,
     IdProducto int NOT NULL,
     CONSTRAINT fkVentaDetalle_IdProducto FOREIGN KEY (IdProducto)
 		REFERENCES Producto(Id),
@@ -168,3 +168,4 @@ CREATE TABLE VentaDetalle(
     Iva FLOAT NULL
 	);
     
+

@@ -68,7 +68,7 @@ END//
         
 CREATE VIEW vVenta
 AS
-SELECT Venta.Id, Venta.IdProducto, Producto.Nombre as NombreProducto, Producto.ValorUnitario, Venta.Cantidad, Venta.Fecha, Venta.IdCliente, Cliente.Nombre as NombreCliente, Usuario.Nombre as NombreUsuario
+SELECT Venta.Id, Venta.IdProducto, Producto.Nombre as NombreProducto, Producto.ValorUnitario, Venta.Cantidad, Venta.Fecha, Cliente.Documento as ClienteDocumento, Cliente.Nombre as NombreCliente, Usuario.Nombre as NombreUsuario
     FROM Venta
         JOIN Producto ON Producto.Id = Venta.IdProducto
         join Cliente on Cliente.Id = Venta.IdCliente
