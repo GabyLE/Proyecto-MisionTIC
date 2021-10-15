@@ -14,6 +14,10 @@ import HomeIcon from '@mui/icons-material/Home';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
+//LOGIN
+import { useAuth0 } from "@auth0/auth0-react";
+
+
 
 const obtenerEstilos = makeStyles(
     (tema) => ({
@@ -57,6 +61,11 @@ const MenuPrincipal = () => {
     // Manejo del estado de usuario logueado
     const [usuarioLogueado, setUsuarioLogueado] = useState(obtenerUsuarioLogueado);
 
+    const { isAuthenticated, logout, loginWithRedirect, user } = useAuth0();
+    // const { logout } = useAuth0();
+    // const { loginWithRedirect } = useAuth0();
+    // const { user, isAuthenticated, isLoading } = useAuth0();
+
     // Manejo del estod de la ventana modal
     const [estadoModal, setEstadoModal] = useState(false);
     // rutina que abre la ventana modal
@@ -87,7 +96,7 @@ const MenuPrincipal = () => {
     }
 
     const menu = () => (
-        
+
         <Box
             sx={{ width: 300 }}
             role="presentation"
@@ -125,40 +134,42 @@ const MenuPrincipal = () => {
     return (
         <AppBar position="static">
             <ThemeProvider theme={theme}>
-            <Toolbar>
-                {usuarioLogueado ? (<IconButton
-                    edge="start"
-                    color="inherit"
-                    aria_label="Menu Principal"
-                    className={estilos.botonMenu}
-                    onClick={mostrarMenu(true)}
-                >
-                    <MenuIcon />
-                </IconButton>) : ""}
-                <Typography variant="h6" className={estilos.titulo}>
-                    Sistema de Ventas
-                </Typography>
-                <span>
-                    {usuarioLogueado ? usuarioLogueado.nombre : ""}
-                </span>
-                {usuarioLogueado ? (
-                    <Button variant="contained" onClick={salir} sx={{ m: 0.5}}>
-                        Salir
-                    </Button>
-                ) : (
+                <Toolbar>
+                    {isAuthenticated ? (
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            aria_label="Menu Principal"
+                            className={estilos.botonMenu}
+                            onClick={mostrarMenu(true)}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    ) : ''}
+                    <Typography variant="h6" className={estilos.titulo}>
+                        Sistema de Ventas
+                    </Typography>
+                    <span>
+                        {isAuthenticated ? user.name : ""}
+                    </span>
+                    {isAuthenticated ? (
+                        <Button variant="contained" onClick={() => logout({ returnTo: window.location.origin })} sx={{ m: 0.5 }}>
+                            Salir
+                        </Button>
+                    ) : (
 
-                    <Button variant="contained" onClick={abrirModal} sx={{ m: 0.5}}>
-                        Ingresar
-                    </Button>
-                )}
-            </Toolbar>
-            <Drawer
-                anchor="left"
-                open={estadoMenu}
-                onClose={mostrarMenu(false)}
-            >
-                {menu()}
-            </Drawer>
+                        <Button variant="contained" onClick={() => loginWithRedirect()} sx={{ m: 0.5 }}>
+                            Ingresar
+                        </Button>
+                    )}
+                </Toolbar>
+                <Drawer
+                    anchor="left"
+                    open={estadoMenu}
+                    onClose={mostrarMenu(false)}
+                >
+                    {menu()}
+                </Drawer>
             </ThemeProvider>
         </AppBar>
     )
