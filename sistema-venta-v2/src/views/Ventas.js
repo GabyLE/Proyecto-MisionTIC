@@ -1,18 +1,10 @@
 import { DataGrid } from '@material-ui/data-grid';
 import React, { useState } from 'react';
-//import { Button } from "@material-ui/core";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import ModalEditar from '../components/EditarVenta/Modal';
 import Confirmacion from '../components/Confirmacion';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import EditIcon from '@mui/icons-material/Edit';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
+import ToolbarCRUD from '../components/ToolbarCRUD';
+
 
 
 
@@ -50,48 +42,6 @@ var VentaA = function (id, idCliente, clienteDocumento, fecha, idUsuario, idProd
     this.idCliente = idCliente;
     this.idUsuario = idUsuario
 }
-
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
-        width: 'auto',
-    },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: '12ch',
-            '&:focus': {
-                width: '20ch',
-            },
-        },
-    },
-}));
 
 const theme = createTheme({
     status: {
@@ -220,32 +170,13 @@ const Ventas = () => {
             </center>
             <ThemeProvider theme={theme}>
                 <div style={{ height: 500, width: '100%' }}>
-                    <Stack direction="row" spacing={2} justifyContent="flex-end">
-                        <Button variant="contained" startIcon={<AddCircleIcon />} onClick={agregar} >
-                            Agregar
-                        </Button>
-                        <Button variant="contained" startIcon={<EditIcon />} onClick={modificar} >
-                            Modificar
-                        </Button>
-                        <Button variant="outlined" color="error" startIcon={<DeleteIcon />} onClick={eliminar}>
-                            Eliminar
-                        </Button>
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Buscar"
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </Search>
-                    </Stack>
+                    <ToolbarCRUD agregar={agregar} eliminar={eliminar} modificar={modificar} />
                     <DataGrid
                         rows={ventas}
                         columns={columnas}
                         pageSize={7}
                         rowsPerPageOptions={[7]}
-
+                        sx={{ m: 2}}
                         onSelectionModelChange={(idVentas) => {
 
                             const ventasSeleccionadas = ventas.filter(
@@ -260,6 +191,7 @@ const Ventas = () => {
 
 
                     />
+                    
 
                     <ModalEditar open={estadoModal} cerrar={cerrarModal} venta={ventaEditada} />
 
