@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Button, IconButton, Box, Drawer, Typography, List, ListItem, ListItemText } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Box, Drawer, Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ModalLogin from './login/Login';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListSubheader from '@mui/material/ListSubheader';
-
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // ICONS
 import ReceiptIcon from '@mui/icons-material/Receipt';
@@ -32,6 +33,22 @@ const obtenerUsuarioLogueado = () => {
     const strUsuarioLogueado = sessionStorage.getItem("usuarioLogueado");
     return JSON.parse(strUsuarioLogueado);
 }
+
+const theme = createTheme({
+    status: {
+        danger: '#e53e3e',
+    },
+    palette: {
+        primary: {
+            main: '#FFC107',
+            darker: '#053e85',
+        },
+        neutral: {
+            main: '#64748B',
+            contrastText: '#fff',
+        },
+    },
+});
 
 const MenuPrincipal = () => {
 
@@ -70,6 +87,7 @@ const MenuPrincipal = () => {
     }
 
     const menu = () => (
+        
         <Box
             sx={{ width: 300 }}
             role="presentation"
@@ -106,8 +124,9 @@ const MenuPrincipal = () => {
 
     return (
         <AppBar position="static">
+            <ThemeProvider theme={theme}>
             <Toolbar>
-                <IconButton
+                {usuarioLogueado ? (<IconButton
                     edge="start"
                     color="inherit"
                     aria_label="Menu Principal"
@@ -115,7 +134,7 @@ const MenuPrincipal = () => {
                     onClick={mostrarMenu(true)}
                 >
                     <MenuIcon />
-                </IconButton>
+                </IconButton>) : ""}
                 <Typography variant="h6" className={estilos.titulo}>
                     Sistema de Ventas
                 </Typography>
@@ -123,12 +142,12 @@ const MenuPrincipal = () => {
                     {usuarioLogueado ? usuarioLogueado.nombre : ""}
                 </span>
                 {usuarioLogueado ? (
-                    <Button variant="contained" onClick={salir}>
+                    <Button variant="contained" onClick={salir} sx={{ m: 0.5}}>
                         Salir
                     </Button>
                 ) : (
 
-                    <Button variant="contained" onClick={abrirModal}>
+                    <Button variant="contained" onClick={abrirModal} sx={{ m: 0.5}}>
                         Ingresar
                     </Button>
                 )}
@@ -141,6 +160,7 @@ const MenuPrincipal = () => {
             >
                 {menu()}
             </Drawer>
+            </ThemeProvider>
         </AppBar>
     )
 }

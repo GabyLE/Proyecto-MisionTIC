@@ -62,6 +62,31 @@ exports.actualizar = (req, res) => {
         });
 }
 
+//Metodo web para actualizar una venta
+exports.buscar = (req, res) => {
+    //validar que la solicitud tenga datos
+    if (!req.body) {
+        res.status(400).send({ message: 'El contenido del mensaje debe tener información con el dato a buscar' });
+    }
+
+    Venta.buscar(req.params.tipo, req.body, (err, data) => {
+            //Verificar si hubo error
+            if (err) {
+                if (err.tipo == "No encontrado") {
+                    res.status(404).send({ message: 'No se realizó ninguna búsqueda' });
+                }
+                else {
+                    res.status(500).send({ message: 'Error realizando búsqueda' });
+                }
+            }
+            else {
+                //Se devuelve el registro actualizado
+                res.header('Access-Control-Allow-Origin', '*');
+                res.send(data);
+            }
+        });
+}
+
 //Metodo web para eliminar una venta
 exports.eliminar = (req, res) => {
     Venta.eliminar(req.params.id,

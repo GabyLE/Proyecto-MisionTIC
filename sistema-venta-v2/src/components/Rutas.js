@@ -3,6 +3,7 @@ import Inicio from '../views/Inicio';
 import Ventas from "../views/Ventas";
 import HomePage from "../views/Home";
 import Usuarios from "../views/Usuarios";
+import Productos from '../views/Productos';
 
 const Rutas = () => {
     return(
@@ -11,6 +12,7 @@ const Rutas = () => {
             <Route exact path='/Home' component={HomePage} />
             <Route exact path='/Ventas' component={Ventas} />
             <Route exact path='/Usuarios' component={Usuarios} />
+            <Route exact path='/Productos' component={Productos} />
         </Switch>
     )
 }

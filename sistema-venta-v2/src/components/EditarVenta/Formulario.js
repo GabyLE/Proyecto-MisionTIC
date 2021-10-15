@@ -81,6 +81,7 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
                 variant="filled"
                 required
                 value={fecha}
+                placeholder = "AAAA-MM-DD"
                 onChange={(e) => { setFecha(e.target.value) }}
             />
             <TextField
