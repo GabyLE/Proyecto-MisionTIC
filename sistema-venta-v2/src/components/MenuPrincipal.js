@@ -87,8 +87,6 @@ const MenuPrincipal = () => {
         setEstadoMenu(estado);
     }
 
-
-
     // rutina que realiza la salida del usuario
     // const salir = () => {
     //     sessionStorage.removeItem("usuarioLogueado");
