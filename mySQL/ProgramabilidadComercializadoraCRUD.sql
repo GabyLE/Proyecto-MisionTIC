@@ -88,7 +88,7 @@ END//
 CREATE PROCEDURE spActualizarVenta(
 IN IdVenta int,
 IN IdCliente int,
-IN Fecha datetime,
+IN Fecha date,
 IN IdUsuario int,
 IN IdProducto int,
 IN Cantidad int
@@ -111,4 +111,29 @@ BEGIN
             Cantidad = Cantidad
 			WHERE Id = IdVenta;
 	END IF;
+END//
+
+-- ** Procedimiento almacenado para buscar una VENTA
+CREATE PROCEDURE spBuscarVentas(
+IN Dato varchar(50),
+IN Tipo int
+)
+BEGIN
+	DECLARE InstruccionSQL varchar(1000);
+	SET Dato=CONCAT(char(39),Dato,'%',char(39));
+	SET InstruccionSQL='SELECT * FROM vVenta';
+	IF Tipo=0 THEN
+		SET InstruccionSQL=CONCAT(InstruccionSQL,' WHERE Id LIKE ',Dato,' AND Id>0');
+	ELSEIF Tipo=1 THEN
+		SET InstruccionSQL=CONCAT(InstruccionSQL,' WHERE NombreCliente LIKE ',Dato,' AND Id>0');
+	ELSEIF Tipo=2 THEN
+		SET InstruccionSQL=CONCAT(InstruccionSQL,' WHERE ClienteDocumento LIKE ',Dato,' AND Id>0');
+	END IF;
+	SET InstruccionSQL=CONCAT(InstruccionSQL,' ORDER BY Id');
+
+	SET @InstruccionSQL=InstruccionSQL;
+	PREPARE ejecucion FROM @InstruccionSQL;
+	EXECUTE ejecucion;
+	DEALLOCATE PREPARE ejecucion;
+
 END//

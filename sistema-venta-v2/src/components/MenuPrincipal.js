@@ -59,7 +59,7 @@ const MenuPrincipal = () => {
     const estilos = obtenerEstilos();
 
     // Manejo del estado de usuario logueado
-    const [usuarioLogueado, setUsuarioLogueado] = useState(obtenerUsuarioLogueado);
+    // const [usuarioLogueado, setUsuarioLogueado] = useState(obtenerUsuarioLogueado);
 
     const { isAuthenticated, logout, loginWithRedirect, user } = useAuth0();
     // const { logout } = useAuth0();
@@ -67,17 +67,17 @@ const MenuPrincipal = () => {
     // const { user, isAuthenticated, isLoading } = useAuth0();
 
     // Manejo del estod de la ventana modal
-    const [estadoModal, setEstadoModal] = useState(false);
+    // const [estadoModal, setEstadoModal] = useState(false);
     // rutina que abre la ventana modal
-    const abrirModal = () => {
-        setEstadoModal(true);
-    }
+    // const abrirModal = () => {
+    //     setEstadoModal(true);
+    // }
 
-    // rutina que cierra la ventana modal
-    const cerraModal = () => {
-        setEstadoModal(false);
-        setUsuarioLogueado(obtenerUsuarioLogueado);
-    }
+    // // rutina que cierra la ventana modal
+    // const cerraModal = () => {
+    //     setEstadoModal(false);
+    //     setUsuarioLogueado(obtenerUsuarioLogueado);
+    // }
 
     // Manejo del estado del menú
     const [estadoMenu, setEstadoMenu] = useState(false);
@@ -90,10 +90,10 @@ const MenuPrincipal = () => {
 
 
     // rutina que realiza la salida del usuario
-    const salir = () => {
-        sessionStorage.removeItem("usuarioLogueado");
-        setUsuarioLogueado(obtenerUsuarioLogueado);
-    }
+    // const salir = () => {
+    //     sessionStorage.removeItem("usuarioLogueado");
+    //     setUsuarioLogueado(obtenerUsuarioLogueado);
+    // }
 
     const menu = () => (
 

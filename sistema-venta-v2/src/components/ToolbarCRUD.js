@@ -21,10 +21,53 @@ const tipos = [
     { label: 'Documento Cliente', value: 2 }
 ];
 
+
+
 const ToolbarCRUD = ({agregar, modificar, eliminar}) => {
 
 
     const [tipo, setTipo] = useState(0);
+
+    const [dato, setDato] = useState('');
+
+    const [resultadoBuscar, setResultadoBuscar] = useState([]);
+
+    const buscar = () => {
+
+        fetch(`http://localhost:3010/ventas/${tipo}`,
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Dato: dato
+                })
+            })
+            .then((res) => res.json())
+            .then((json) => {
+                var ventasT = [];
+                json.map((item) => {
+                    ventasT.push(new VentaL(
+                        item.Id,
+                        item.IdProducto,
+                        item.NombreProducto,
+                        item.ValorUnitario,
+                        item.Cantidad,
+                        item.Fecha,
+                        item.ClienteDocumento,
+                        item.NombreCliente,
+                        item.NombreUsuario
+                    ));
+                });
+                setResultadoBuscar(ventasT);
+                //setEstadoListado(false);
+            })
+            .catch(function (error) {
+                window.alert(`error buscando venta [${error}]`);
+            });
+    }
 
     return (
         <Paper
@@ -51,6 +94,7 @@ const ToolbarCRUD = ({agregar, modificar, eliminar}) => {
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Buscar"
                 inputProps={{ 'aria-label': 'buscar' }}
+                onChange = {(e) => { setDato(e.target.value) }}
             />
             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />
