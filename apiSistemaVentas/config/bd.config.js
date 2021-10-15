@@ -1,6 +1,6 @@
 module.exports = {
     SERVIDOR: 'localhost',
     USUARIO: 'root',
-    CLAVE: 'AnubiS.971031',
+    CLAVE: '',
     BASEDATOS: 'Comercializadora'
 }

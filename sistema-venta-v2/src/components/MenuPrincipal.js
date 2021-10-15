@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Box, Drawer, Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import ModalLogin from './login/Login';
+/* import ModalLogin from './login/Login'; */
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListSubheader from '@mui/material/ListSubheader';
 import Button from '@mui/material/Button';
@@ -152,7 +152,6 @@ const MenuPrincipal = () => {
                     </Button>
                 )}
             </Toolbar>
-            <ModalLogin open={estadoModal} cerrar={cerraModal} />
             <Drawer
                 anchor="left"
                 open={estadoMenu}

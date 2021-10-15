@@ -1,15 +1,8 @@
-import Dialog from '@material-ui/core/Dialog';
-import Formulario from './Formulario';
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const ModalLogin = ({ open, cerrar }) => {
+export const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
 
-    return (
-        <Dialog open={open} onClose={cerrar}>
-            <Formulario cerrarFormulario={cerrar} />
-        </Dialog>
-
-    );
-
-}
-
-export default ModalLogin;
+  return <button onClick={() => loginWithRedirect()}>Login</button>;
+};
