@@ -45,6 +45,7 @@ exports.actualizar = (req, res) => {
 
     Venta.actualizar(new Venta(req.body),
         (err, data) => {
+            
             //Verificar si hubo error
             if (err) {
                 if (err.tipo == "No encontrado") {
@@ -59,6 +60,7 @@ exports.actualizar = (req, res) => {
                 res.header('Access-Control-Allow-Origin', '*');
                 res.send(data);
             }
+            console.log(data);
         });
 }
 

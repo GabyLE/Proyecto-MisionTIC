@@ -1,9 +1,9 @@
-import ToolbarCRUD from '../components/ToolbarCRUD';
+// import ToolbarCRUD from '../components/ToolbarCRUD';
 
 const Productos = () => {
     return(
         <div>
-<ToolbarCRUD />
+
         </div>
         
     );

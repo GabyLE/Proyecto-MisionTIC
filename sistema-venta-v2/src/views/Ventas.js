@@ -3,10 +3,29 @@ import React, { useState } from 'react';
 import ModalEditar from '../components/EditarVenta/Modal';
 import Confirmacion from '../components/Confirmacion';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ToolbarCRUD from '../components/ToolbarCRUD';
+// import ToolbarCRUD from '../components/ToolbarCRUD';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+
+import Button from '@mui/material/Button';
+
+import TextField from '@mui/material/TextField';
+
+import MenuItem from '@mui/material/MenuItem';
+
+import EditIcon from '@mui/icons-material/Edit';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
-
+const tipos = [
+    { label: 'Id Venta', value: 0 },
+    { label: 'Nombre Cliente', value: 1 },
+    { label: 'Documento Cliente', value: 2 }
+];
 
 
 const columnas = [
@@ -34,12 +53,13 @@ var VentaL = function (id, idProducto, nombreProducto, valorUnitario,
     this.nombreUsuario = nombreUsuario;
 }
 
-var VentaA = function (id, idCliente, clienteDocumento, fecha, idUsuario, idProducto, cantidad) {
+var VentaA = function (id, clienteDocumento,nombreCliente, fecha, idUsuario, idProducto, cantidad) {
     this.id = id;
     this.idProducto = idProducto;
     this.cantidad = cantidad;
     this.fecha = fecha;
-    this.idCliente = idCliente;
+    this.clienteDocumento = clienteDocumento;
+    this.nombreCliente = nombreCliente;
     this.idUsuario = idUsuario
 }
 
@@ -74,6 +94,12 @@ const Ventas = () => {
 
     const [estadoConfirmacion, setEstadoConfirmacion] = useState(false);
 
+    const [resultadoBuscar, setResultadoBuscar] = useState([]);
+
+    const [tipo, setTipo] = useState(0);
+
+    const [dato, setDato] = useState('');
+
     const obtenerVentas = () => {
         // Consultar la lista de ventas desde la API
         fetch("http://localhost:3010/ventas", { method: "get" })
@@ -107,7 +133,7 @@ const Ventas = () => {
     }
 
     const agregar = () => {
-        const ventaE = new VentaA(-1, "", "", "", "", "")
+        const ventaE = new VentaA(-1, "", "", "", "", "", "")
         setVentaEditada(ventaE);
         setEstadoModal(true);
     }
@@ -161,6 +187,43 @@ const Ventas = () => {
         setEstadoConfirmacion(false);
     }
 
+    // const buscar = () => {
+
+    //     fetch(`http://localhost:3010/ventas/${tipo}`,
+    //         {
+    //             method: 'post',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Accept': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 Dato: dato
+    //             })
+    //         })
+    //         .then((res) => res.json())
+    //         .then((json) => {
+    //             // var ventasT = [];
+    //             json.map((item) => {
+    //                 resultadoBusqueda.push(
+    //                     item.Id,
+    //                     item.IdProducto,
+    //                     item.NombreProducto,
+    //                     item.ValorUnitario,
+    //                     item.Cantidad,
+    //                     item.Fecha,
+    //                     item.ClienteDocumento,
+    //                     item.NombreCliente,
+    //                     item.NombreUsuario
+    //                 );
+    //             });
+    //             setResultadoBuscar(resultadoBusqueda);
+    //             //setEstadoListado(false);
+    //         })
+    //         .catch(function (error) {
+    //             window.alert(`error buscando venta [${error}]`);
+    //         });
+    // }
+
     return (
         <div>
             <center>
@@ -170,7 +233,46 @@ const Ventas = () => {
             </center>
             <ThemeProvider theme={theme}>
                 <div style={{ height: 500, width: '100%' }}>
-                    <ToolbarCRUD agregar={agregar} eliminar={eliminar} modificar={modificar} />
+                <Paper
+            component="form"
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
+            spacing = {1}
+        >
+            <TextField
+
+                select
+                label="Seleccione"
+                value={tipo}
+                onChange={(e) => { setTipo(e.target.value) }}
+                variant="standard"
+                sx={{ ml: 1, flex: 1, width: 200 }}
+            >
+                {tipos.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                    </MenuItem>
+                ))}
+            </TextField>
+            <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Buscar"
+                inputProps={{ 'aria-label': 'buscar' }}
+                onChange = {(e) => { setDato(e.target.value) }}
+            />
+            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+                <SearchIcon />
+            </IconButton>
+            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            <Button variant="contained" startIcon={<AddCircleIcon />} sx={{ m: 0.5}} onClick={agregar} >
+                Agregar
+            </Button>
+            <Button variant="contained" startIcon={<EditIcon />} sx={{ m: 0.5}} onClick={modificar} >
+                Modificar
+            </Button>
+            <Button variant="outlined" color="error" startIcon={<DeleteIcon />} sx={{ m: 0.5}} onClick={eliminar} >
+                Eliminar
+            </Button>
+        </Paper>
                     <DataGrid
                         rows={ventas}
                         columns={columnas}

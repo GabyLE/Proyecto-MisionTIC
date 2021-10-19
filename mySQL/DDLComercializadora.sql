@@ -142,8 +142,8 @@ CREATE UNIQUE INDEX ixFormaPago_FormaPago
 CREATE TABLE Venta( 
 	Id int NOT NULL AUTO_INCREMENT, 
 	CONSTRAINT pkVenta_Id PRIMARY KEY (Id),
-	IdCliente int NOT NULL, 
-	CONSTRAINT fkPedido_IdCliente FOREIGN KEY (IdCliente) REFERENCES Cliente (Id),
+	DocCliente VARCHAR(15) NOT NULL,
+    NombreCliente VARCHAR(50) NOT NULL,
     Fecha date NOT NULL,
     IdProducto int NOT NULL,
     CONSTRAINT fkVentaDetalle_IdProducto FOREIGN KEY (IdProducto)
