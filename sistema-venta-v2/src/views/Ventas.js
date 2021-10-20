@@ -20,6 +20,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import {VentaL, VentaA, listarVentas} from '../services/Global';
 
 const tipos = [
     { label: 'Id Venta', value: 0 },
@@ -39,29 +40,6 @@ const columnas = [
     { field: "nombreCliente", headerName: "Cliente", width: 300 },
     { field: "nombreUsuario", headerName: "Encargado", width: 300 },
 ]
-
-var VentaL = function (id, idProducto, nombreProducto, valorUnitario,
-    cantidad, fecha, clienteDocumento, nombreCliente, nombreUsuario) {
-    this.id = id;
-    this.idProducto = idProducto;
-    this.nombreProducto = nombreProducto;
-    this.valorUnitario = valorUnitario;
-    this.cantidad = cantidad;
-    this.fecha = fecha;
-    this.clienteDocumento = clienteDocumento;
-    this.nombreCliente = nombreCliente;
-    this.nombreUsuario = nombreUsuario;
-}
-
-var VentaA = function (id, clienteDocumento,nombreCliente, fecha, idUsuario, idProducto, cantidad) {
-    this.id = id;
-    this.idProducto = idProducto;
-    this.cantidad = cantidad;
-    this.fecha = fecha;
-    this.clienteDocumento = clienteDocumento;
-    this.nombreCliente = nombreCliente;
-    this.idUsuario = idUsuario
-}
 
 const theme = createTheme({
     status: {
@@ -100,28 +78,10 @@ const Ventas = () => {
 
     const [dato, setDato] = useState('');
 
-    const obtenerVentas = () => {
-        // Consultar la lista de ventas desde la API
-        fetch("http://localhost:3010/ventas", { method: "get" })
-            .then((res) => res.json())
-            .then((json) => {
-                var ventasT = [];
-                json.map((item) => {
-                    ventasT.push(new VentaL(
-                        item.Id,
-                        item.IdProducto,
-                        item.NombreProducto,
-                        item.ValorUnitario,
-                        item.Cantidad,
-                        item.Fecha,
-                        item.ClienteDocumento,
-                        item.NombreCliente,
-                        item.NombreUsuario
-                    ));
-                });
-                setVentas(ventasT);
-                setEstadoListado(false);
-            });
+    async function obtenerVentas () {
+        const ventasT = await listarVentas();
+        setVentas(ventasT);
+        setEstadoListado(false);
     }
 
     if (estadoListado) {
