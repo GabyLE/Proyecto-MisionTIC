@@ -1,1 +1,1 @@
-export default apiBaseUrl = "https://apisistemaventas.herokuapp.com";
+export const apiBaseUrl = "https://apisistemaventas.herokuapp.com";

@@ -120,7 +120,7 @@ const Ventas = () => {
     }
 
     const confirmarEliminacion = () => {
-        fetch(`${apiBaseUrl}/${ventaEditada.id}`,
+        fetch(`${apiBaseUrl}/ventas/${ventaEditada.id}`,
             {
                 method: 'delete',
             })
