@@ -1,17 +1,21 @@
 const express = require('express');
 const app = express();
-const puerto = 3010;
+const port = 3010;
 
-app.get('/', (req, res) => {
-    res.send('Servicio de BD Comercializadora en funcionamiento');
-});
 
 app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
+app.set('port', process.env.PORT || port)
+
+app.get('/', (req, res) => {
+    res.send('Servicio de BD Comercializadora en funcionamiento');
+});
+
 require("./routes/venta.rutas")(app);
 
-app.listen(puerto, () => {
+const puerto = app.get('port');
+app.listen(app.get('port'), () => {
     console.log(`Servicio de BD Comercializadora eschuchando en http://localhost:${puerto}`);
 })

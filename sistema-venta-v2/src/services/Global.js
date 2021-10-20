@@ -1,3 +1,5 @@
+import {apiBaseUrl} from '../utils/Api';
+
 export const VentaL = function (id, idProducto, nombreProducto, valorUnitario,
     cantidad, fecha, clienteDocumento, nombreCliente, nombreUsuario) {
     this.id = id;
@@ -23,7 +25,7 @@ export const VentaA = function (id, clienteDocumento,nombreCliente, fecha, idUsu
 
 export const listarVentas = () => {
     // Consultar la lista de ventas desde la API
-    return fetch("http://localhost:3010/ventas", { method: "get" })
+    return fetch(`${apiBaseUrl}/ventas`, { method: "get" })
     .then((res) => {
         if(!res.ok) {
             throw new Error(`HTTP error, estado = ${res.status}`);

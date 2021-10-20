@@ -62,9 +62,9 @@ CREATE TABLE Producto(
 	Id int NOT NULL AUTO_INCREMENT, 
 	CONSTRAINT pkProducto_Id PRIMARY KEY (Id),
 	Nombre varchar(200) NOT NULL,
-	Referencia varchar(20) NOT NULL,
+	Referencia varchar(20) NULL,
 	ValorUnitario FLOAT NOT NULL,
-    IdMarca int NOT NULL, 
+    IdMarca int NULL, 
 	CONSTRAINT fkProducto_IdMarca FOREIGN KEY (IdMarca) REFERENCES Marca (Id),
 	Imagen MEDIUMBLOB NULL
     );

@@ -7,20 +7,18 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+// ICONOS
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-
-import Button from '@mui/material/Button';
-
-import TextField from '@mui/material/TextField';
-
 import MenuItem from '@mui/material/MenuItem';
-
 import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+// Globals
 import {VentaL, VentaA, listarVentas} from '../services/Global';
+import {apiBaseUrl} from '../utils/Api';
 
 const tipos = [
     { label: 'Id Venta', value: 0 },
@@ -122,7 +120,7 @@ const Ventas = () => {
     }
 
     const confirmarEliminacion = () => {
-        fetch(`http://localhost:3010/ventas/${ventaEditada.id}`,
+        fetch(`${apiBaseUrl}/${ventaEditada.id}`,
             {
                 method: 'delete',
             })

@@ -1,6 +1,7 @@
 import { TextField, Button } from "@material-ui/core";
 import { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import {apiBaseUrl} from '../../utils/Api';
 
 const obtenerEstilos = makeStyles(theme => ({
     root: {
@@ -34,7 +35,7 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
 
     const guardar = () => {
 
-        fetch("http://localhost:3010/ventas",
+        fetch(`${apiBaseUrl}/ventas`,
             {
                 method: 'post',
                 headers: {
