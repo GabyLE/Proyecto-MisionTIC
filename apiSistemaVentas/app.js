@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 require("./routes/venta.rutas")(app);
+require("./routes/usuario.rutas")(app);
 
 const puerto = app.get('port');
 app.listen(app.get('port'), () => {

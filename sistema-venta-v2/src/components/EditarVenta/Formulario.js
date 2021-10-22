@@ -1,7 +1,9 @@
 import { TextField, Button } from "@material-ui/core";
 import { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import {apiBaseUrl} from '../../utils/Api';
+import { apiBaseUrl } from '../../utils/Api';
+import { Autocomplete } from "@mui/material";
+import { listarUsuarios } from "../../services/Global";
 
 const obtenerEstilos = makeStyles(theme => ({
     root: {
@@ -30,10 +32,21 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
     const [cantidad, setCantidad] = useState(ventaEditada.cantidad);
     const [fecha, setFecha] = useState(ventaEditada.fecha);
     const [idCliente, setIdCliente] = useState(ventaEditada.clienteDocumento);
-    const [idUsuario, setIdUsuario] = useState(ventaEditada.idUsuario);
+    const [usuario, setUsuario] = useState(ventaEditada.usuario);
     const [nombreCliente, setNombreCliente] = useState(ventaEditada.nombreCliente)
+    const [estadoListado, setEstadoListado] = useState(true);
+    const [usuarios, setUsuarios] = useState([]);
 
-    const guardar = () => {
+    async function obtenerUsuarios() {
+        const usuariosT = await listarUsuarios();
+        setUsuarios(usuariosT);
+        setEstadoListado(false);
+    }
+
+    if (estadoListado) {
+        obtenerUsuarios();
+    }
+    const guardar = (e) => {
 
         fetch(`${apiBaseUrl}/ventas`,
             {
@@ -49,7 +62,8 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
                     Fecha: fecha,
                     IdProducto: idProducto,
                     Cantidad: cantidad,
-                    IdUsuario: idUsuario
+                    IdUsuario: usuario.id,
+                    NombreUsuario: usuario.nombre
                 })
             })
             .then((res) => res.json())
@@ -60,6 +74,10 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
             .catch(function (error) {
                 window.alert(`error agregando venta [${error}]`);
             });
+    }
+
+    const seleccionarUsuario = (e, usuarioEscogido) => {
+        setUsuario(usuarioEscogido);
     }
 
     return (
@@ -85,7 +103,7 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
                 variant="filled"
                 required
                 value={fecha}
-                placeholder = "AAAA-MM-DD"
+                placeholder="AAAA-MM-DD"
                 onChange={(e) => { setFecha(e.target.value) }}
             />
             <TextField
@@ -102,13 +120,21 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
                 value={nombreCliente}
                 onChange={(e) => { setNombreCliente(e.target.value) }}
             />
-            <TextField
-                label="Encargado de Venta"
-                variant="filled"
+            <Autocomplete
+                value={usuario}
+                options={usuarios}
                 required
-                value={idUsuario}
-                onChange={(e) => { setIdUsuario(e.target.value) }}
+                getOptionLabel={(option) => option.nombre}
+                onChange={seleccionarUsuario}
+                renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        label="Encargado de Venta"
+
+                    />
+                )}
             />
+
             <div>
                 <Button variant="contained" onClick={cerrarFormulario}>
                     Cancelar

@@ -2,6 +2,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import React, { useState } from 'react';
 import { Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import {Usuario, listarUsuarios} from '../services/Global';
 
 
 const columnas = [
@@ -12,13 +13,7 @@ const columnas = [
     { field: "estado", headerName: "Estado", width: 300 },
 ]
 
-var Usuario = function (id, usuario, nombre, rol, estado) {
-    this.id = id;
-    this.usuario = usuario;
-    this.nombre = nombre;
-    this.rol = rol;
-    this.estado = estado;
-}
+
 
 const obtenerEstilos = makeStyles(theme => ({
     botonAgregar: {
@@ -50,23 +45,10 @@ const Usuarios = () => {
 
     const [estadoListado, setEstadoListado] = useState(true);
 
-    const obtenerUsuarios = () => {
-        // Consultar la lista de monedas desde la API
-        fetch("http://localhost:3010/usuarios", { method: "get"})
-        .then((res) => res.json())
-        .then((json) => {
-            var usuariosT = [];
-            json.map((item) => {
-                usuariosT.push(new Usuario(
-                    item.Id,
-                    item.Usuario,
-                    item.Nombre,
-                    item.IdRol,
-                    item.Activo));
-            });
-            setUsuarios(usuariosT);
-            setEstadoListado(false);
-        });
+    async function obtenerUsuarios() {
+        const usuariosT = await listarUsuarios();
+        setUsuarios(usuariosT);
+        setEstadoListado(false);
     }
 
     if(estadoListado) {

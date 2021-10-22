@@ -17,8 +17,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 // Globals
-import {VentaL, VentaA, listarVentas} from '../services/Global';
-import {apiBaseUrl} from '../utils/Api';
+import { VentaL, VentaA, listarVentas, buscarVentas } from '../services/Global';
+import { apiBaseUrl } from '../utils/Api';
 
 const tipos = [
     { label: 'Id Venta', value: 0 },
@@ -26,6 +26,9 @@ const tipos = [
     { label: 'Documento Cliente', value: 2 }
 ];
 
+function obtenerDatosUsuario(params) {
+    return params.getValue(params.id, "usuario").nombre;
+}
 
 const columnas = [
     { field: "id", headerName: "ID Venta", width: 135 },
@@ -36,7 +39,10 @@ const columnas = [
     { field: "fecha", headerName: "Fecha", width: 200 },
     { field: "clienteDocumento", headerName: "Cliente ID", width: 160 },
     { field: "nombreCliente", headerName: "Cliente", width: 300 },
-    { field: "nombreUsuario", headerName: "Encargado", width: 300 },
+    {
+        field: "usuario", headerName: "Encargado", width: 300,
+        //valueGetter: obtenerDatosUsuario
+    },
 ]
 
 const theme = createTheme({
@@ -58,7 +64,7 @@ const theme = createTheme({
 
 
 const Ventas = () => {
-    
+
 
     const [ventas, setVentas] = useState([]);
 
@@ -72,20 +78,80 @@ const Ventas = () => {
 
     const [resultadoBuscar, setResultadoBuscar] = useState([]);
 
+    const [estadoBusqueda, setEstadoBusqueda] = useState(false);
+
     const [tipo, setTipo] = useState(0);
 
     const [dato, setDato] = useState('');
 
-    async function obtenerVentas () {
+    
+    const buscar = () => {
+        fetch(`http://localhost:3010/ventas/${tipo}`,
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Dato: dato
+                })
+            })
+            .then((res) => {
+                if(!res.ok) {
+                    throw new Error(`HTTP error, estado = ${res.status}`);
+                }
+                return res.json();
+            })
+            .then((json) => {
+                
+                var busquedaT = [];
+                json.map((item) => {
+                    busquedaT.push( new VentaL(
+                        item.Id,
+                        item.IdProducto,
+                        item.NombreProducto,
+                        item.ValorUnitario,
+                        item.Cantidad,
+                        item.Fecha,
+                        item.ClienteDocumento,
+                        item.NombreCliente,
+                        item.IdUsuario,
+                        item.NombreUsuario)
+                    );
+                });
+                window.alert(`BUSQUEDA1: ${busquedaT}`);
+                //console.log(busquedaT);
+                setResultadoBuscar(busquedaT);
+                window.alert(`BUSQUEDA2: ${resultadoBuscar}`);
+                //setEstadoListado(false);
+                // return busquedaT;
+            })
+            .catch(function (error) {
+                window.alert(`error buscando venta [${error}]`);
+            });
+    }
+
+    async function obtenerVentas() {
         const ventasT = await listarVentas();
         setVentas(ventasT);
+        // window.alert(`VENTAS: ${ventas}`);
         setEstadoListado(false);
     }
+
+
+    // function buscar () {
+    //     setEstadoListado(false);
+    //     setEstadoBusqueda(true);
+    //     const busqueda = obtenerBusqueda();
+    //     setVentas(busqueda);
+
+    // }
 
     if (estadoListado) {
         obtenerVentas();
     }
-
+    
     const cerrarModal = () => {
         setEstadoModal(false);
     }
@@ -145,42 +211,7 @@ const Ventas = () => {
         setEstadoConfirmacion(false);
     }
 
-    // const buscar = () => {
-
-    //     fetch(`http://localhost:3010/ventas/${tipo}`,
-    //         {
-    //             method: 'post',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Accept': 'application/json'
-    //             },
-    //             body: JSON.stringify({
-    //                 Dato: dato
-    //             })
-    //         })
-    //         .then((res) => res.json())
-    //         .then((json) => {
-    //             // var ventasT = [];
-    //             json.map((item) => {
-    //                 resultadoBusqueda.push(
-    //                     item.Id,
-    //                     item.IdProducto,
-    //                     item.NombreProducto,
-    //                     item.ValorUnitario,
-    //                     item.Cantidad,
-    //                     item.Fecha,
-    //                     item.ClienteDocumento,
-    //                     item.NombreCliente,
-    //                     item.NombreUsuario
-    //                 );
-    //             });
-    //             setResultadoBuscar(resultadoBusqueda);
-    //             //setEstadoListado(false);
-    //         })
-    //         .catch(function (error) {
-    //             window.alert(`error buscando venta [${error}]`);
-    //         });
-    // }
+    
 
     return (
         <div>
@@ -191,52 +222,52 @@ const Ventas = () => {
             </center>
             <ThemeProvider theme={theme}>
                 <div style={{ height: 500, width: '100%' }}>
-                <Paper
-            component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
-            spacing = {1}
-        >
-            <TextField
+                    <Paper
+                        component="form"
+                        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
+                        spacing={1}
+                    >
+                        <TextField
 
-                select
-                label="Seleccione"
-                value={tipo}
-                onChange={(e) => { setTipo(e.target.value) }}
-                variant="standard"
-                sx={{ ml: 1, flex: 1, width: 200 }}
-            >
-                {tipos.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                    </MenuItem>
-                ))}
-            </TextField>
-            <InputBase
-                sx={{ ml: 1, flex: 1 }}
-                placeholder="Buscar"
-                inputProps={{ 'aria-label': 'buscar' }}
-                onChange = {(e) => { setDato(e.target.value) }}
-            />
-            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-                <SearchIcon />
-            </IconButton>
-            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-            <Button variant="contained" startIcon={<AddCircleIcon />} sx={{ m: 0.5}} onClick={agregar} >
-                Agregar
-            </Button>
-            <Button variant="contained" startIcon={<EditIcon />} sx={{ m: 0.5}} onClick={modificar} >
-                Modificar
-            </Button>
-            <Button variant="outlined" color="error" startIcon={<DeleteIcon />} sx={{ m: 0.5}} onClick={eliminar} >
-                Eliminar
-            </Button>
-        </Paper>
+                            select
+                            label="Seleccione"
+                            value={tipo}
+                            onChange={(e) => { setTipo(e.target.value) }}
+                            variant="standard"
+                            sx={{ ml: 1, flex: 1, width: 200 }}
+                        >
+                            {tipos.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        <InputBase
+                            sx={{ ml: 1, flex: 1 }}
+                            placeholder="Buscar"
+                            inputProps={{ 'aria-label': 'buscar' }}
+                            onChange={(e) => { setDato(e.target.value) }}
+                        />
+                        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={buscar}>
+                            <SearchIcon />
+                        </IconButton>
+                        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                        <Button variant="contained" startIcon={<AddCircleIcon />} sx={{ m: 0.5 }} onClick={agregar} >
+                            Agregar
+                        </Button>
+                        <Button variant="contained" startIcon={<EditIcon />} sx={{ m: 0.5 }} onClick={modificar} >
+                            Modificar
+                        </Button>
+                        <Button variant="outlined" color="error" startIcon={<DeleteIcon />} sx={{ m: 0.5 }} onClick={eliminar} >
+                            Eliminar
+                        </Button>
+                    </Paper>
                     <DataGrid
                         rows={ventas}
                         columns={columnas}
                         pageSize={7}
                         rowsPerPageOptions={[7]}
-                        sx={{ m: 2}}
+                        sx={{ m: 2 }}
                         onSelectionModelChange={(idVentas) => {
 
                             const ventasSeleccionadas = ventas.filter(
@@ -251,7 +282,7 @@ const Ventas = () => {
 
 
                     />
-                    
+
 
                     <ModalEditar open={estadoModal} cerrar={cerrarModal} venta={ventaEditada} />
 

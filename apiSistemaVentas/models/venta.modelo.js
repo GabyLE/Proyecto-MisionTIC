@@ -1,5 +1,6 @@
 //Cargar la libreria con la conexion a la bd
 var sql = require('./bd');
+const Usuario = require('./usuario.modelo');
 
 //constructor
 var Venta = function (venta) {
@@ -7,7 +8,14 @@ var Venta = function (venta) {
     this.idCliente = venta.IdCliente,
     this.nombreCliente = venta.NombreCliente,
     this.fecha = venta.Fecha,
-    this.idUsuario = venta.IdUsuario,
+    this.usuario = new Usuario ({
+        Id: venta.IdUsuario,
+        Nombre: venta.NombreUsuario,
+        Usuario : '',
+        Clave: '',
+        IdRol: '',
+        Activo: ''
+    }),
     this.idProducto = venta.IdProducto,
     this.cantidad = venta.Cantidad
 }
@@ -50,7 +58,7 @@ Venta.listar = (resultado) => {
 //Metodo que obtiene un registro basado en la clave primaria
 Venta.actualizar = (venta, resultado) => {
     sql.query('CALL spActualizarVenta(?, ?, ?, ?, ?, ?, ?);', //consulta sql
-        [venta.id, venta.idCliente, venta.nombreCliente, venta.fecha, venta.idUsuario, venta.idProducto, venta.cantidad], //parametros
+        [venta.id, venta.idCliente, venta.nombreCliente, venta.fecha, venta.usuario.id, venta.idProducto, venta.cantidad], //parametros
         (err, res) => {
             //Verificar si hubo error ejecutando la consulta
             if (err) {
