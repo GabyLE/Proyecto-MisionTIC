@@ -1,5 +1,6 @@
-import { FileCopySharp } from '@material-ui/icons';
 import {apiBaseUrl} from '../utils/Api';
+import React, { useState } from 'react';
+
 
 export const Usuario = function (id, usuario, nombre, rol, estado) {
     this.id = id;
@@ -63,9 +64,6 @@ export const listarVentas = () => {
         });
         return ventas;
     })
-    .catch(function (error) {
-        window.alert(`Error consultando ventas [${error}]`);
-    });
 }
 
 export const listarUsuarios = () => {
@@ -85,8 +83,4 @@ export const listarUsuarios = () => {
         
         return usuarios;
     });
-}
-
-export const buscarVentas = (tipo, dato) => {
-    return 
 }

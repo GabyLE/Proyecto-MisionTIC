@@ -68,7 +68,7 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
             })
             .then((res) => res.json())
             .then((json) => {
-                window.alert(`Respuesta: ${json.venta}`);
+                //window.alert(`Respuesta: ${json.venta}`);
                 cerrarFormulario();
             })
             .catch(function (error) {
@@ -79,9 +79,10 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
     const seleccionarUsuario = (e, usuarioEscogido) => {
         setUsuario(usuarioEscogido);
     }
+    
 
     return (
-        <form className={estilos.root} onSubmit={guardar}>
+        <form className={estilos.root}  >
             {ventaEditada.id == "-1" ? <h3>Agregar Venta</h3> : <h3>Modificar Venta {ventaEditada.id}</h3>}
             <TextField
                 label="ID Producto"
@@ -139,7 +140,7 @@ const Formulario = ({ cerrarFormulario, ventaEditada }) => {
                 <Button variant="contained" onClick={cerrarFormulario}>
                     Cancelar
                 </Button>
-                <Button variant="contained" type="submit" color="primary">
+                <Button variant="contained" onClick={guardar} color="primary">
                     Aceptar
                 </Button>
             </div>

@@ -17,7 +17,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 // Globals
-import { VentaL, VentaA, listarVentas, buscarVentas } from '../services/Global';
+import { VentaL, VentaA, listarVentas, buscarVentas} from '../services/Global';
 import { apiBaseUrl } from '../utils/Api';
 
 const tipos = [
@@ -68,8 +68,6 @@ const Ventas = () => {
 
     const [estadoConfirmacion, setEstadoConfirmacion] = useState(false);
 
-    const [resultadoBuscar, setResultadoBuscar] = useState([]);
-
     const [estadoBusqueda, setEstadoBusqueda] = useState(false);
 
     const [tipo, setTipo] = useState(0);
@@ -114,13 +112,14 @@ const Ventas = () => {
                 
                 var busquedaT = [];
                 json.map((item) => {
+                    const [fecha, hora] = item.Fecha.toString().split('T');
                     busquedaT.push( new VentaL(
                         item.Id,
                         item.IdProducto,
                         item.NombreProducto,
                         item.ValorUnitario,
                         item.Cantidad,
-                        item.Fecha,
+                        fecha,
                         item.ClienteDocumento,
                         item.NombreCliente,
                         item.IdUsuario,
@@ -151,6 +150,7 @@ const Ventas = () => {
 
     const cerrarModal = () => {
         setEstadoModal(false);
+        setEstadoListado(true);
     }
 
     const agregar = () => {
@@ -194,7 +194,7 @@ const Ventas = () => {
                 return res.json();
             })
             .then((json) => {
-                window.alert(json.message);
+                //window.alert(json.message);
                 setEstadoListado(true);
 
             })
