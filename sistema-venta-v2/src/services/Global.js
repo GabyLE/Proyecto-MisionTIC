@@ -1,3 +1,4 @@
+import { FileCopySharp } from '@material-ui/icons';
 import {apiBaseUrl} from '../utils/Api';
 
 export const Usuario = function (id, usuario, nombre, rol, estado) {
@@ -46,13 +47,14 @@ export const listarVentas = () => {
     .then((json) => {
         var ventas = [];
         json.map((item) => {
+            const [fecha, hora] = item.Fecha.toString().split('T');
             ventas.push(new VentaL(
                 item.Id,
                 item.IdProducto,
                 item.NombreProducto,
                 item.ValorUnitario,
                 item.Cantidad,
-                item.Fecha,
+                fecha,
                 item.ClienteDocumento,
                 item.NombreCliente,
                 item.IdUsuario,
