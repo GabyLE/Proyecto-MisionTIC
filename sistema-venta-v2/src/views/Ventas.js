@@ -26,10 +26,6 @@ const tipos = [
     { label: 'Documento Cliente', value: 2 }
 ];
 
-function obtenerDatosUsuario(params) {
-    return params.getValue(params.id, "usuario").nombre;
-}
-
 const columnas = [
     { field: "id", headerName: "ID Venta", width: 135 },
     { field: "idProducto", headerName: "ID Producto", width: 160 },
@@ -39,10 +35,7 @@ const columnas = [
     { field: "fecha", headerName: "Fecha", width: 200 },
     { field: "clienteDocumento", headerName: "Cliente ID", width: 160 },
     { field: "nombreCliente", headerName: "Cliente", width: 300 },
-    {
-        field: "usuario", headerName: "Encargado", width: 300,
-        //valueGetter: obtenerDatosUsuario
-    },
+    {field: "nombreUsuario", headerName: "Encargado", width: 300},
 ]
 
 const theme = createTheme({
@@ -65,7 +58,6 @@ const theme = createTheme({
 
 const Ventas = () => {
 
-
     const [ventas, setVentas] = useState([]);
 
     const [estadoListado, setEstadoListado] = useState(true);
@@ -84,9 +76,24 @@ const Ventas = () => {
 
     const [dato, setDato] = useState('');
 
-    
     const buscar = () => {
-        fetch(`http://localhost:3010/ventas/${tipo}`,
+        if(dato){
+            setEstadoBusqueda(true);
+        }
+        else{
+            setEstadoListado(true);
+        }
+    }
+
+    async function obtenerBusqueda() {
+        const ventasT = await buscarVentas();
+        setVentas(ventasT);
+        // window.alert(`VENTAS: ${ventas}`);
+        setEstadoBusqueda(false);
+    }
+
+    const buscarVentas = () => {
+        return fetch(`http://localhost:3010/ventas/${tipo}`,
             {
                 method: 'post',
                 headers: {
@@ -120,12 +127,8 @@ const Ventas = () => {
                         item.NombreUsuario)
                     );
                 });
-                window.alert(`BUSQUEDA1: ${busquedaT}`);
-                //console.log(busquedaT);
-                setResultadoBuscar(busquedaT);
-                window.alert(`BUSQUEDA2: ${resultadoBuscar}`);
-                //setEstadoListado(false);
-                // return busquedaT;
+               
+                return busquedaT;
             })
             .catch(function (error) {
                 window.alert(`error buscando venta [${error}]`);
@@ -135,23 +138,17 @@ const Ventas = () => {
     async function obtenerVentas() {
         const ventasT = await listarVentas();
         setVentas(ventasT);
-        // window.alert(`VENTAS: ${ventas}`);
         setEstadoListado(false);
     }
 
 
-    // function buscar () {
-    //     setEstadoListado(false);
-    //     setEstadoBusqueda(true);
-    //     const busqueda = obtenerBusqueda();
-    //     setVentas(busqueda);
-
-    // }
-
-    if (estadoListado) {
+    if (estadoBusqueda) {
+        obtenerBusqueda();
+    }
+    else if (estadoListado) {
         obtenerVentas();
     }
-    
+
     const cerrarModal = () => {
         setEstadoModal(false);
     }
@@ -211,8 +208,6 @@ const Ventas = () => {
         setEstadoConfirmacion(false);
     }
 
-    
-
     return (
         <div>
             <center>
@@ -248,7 +243,7 @@ const Ventas = () => {
                             inputProps={{ 'aria-label': 'buscar' }}
                             onChange={(e) => { setDato(e.target.value) }}
                         />
-                        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={buscar}>
+                        <IconButton  sx={{ p: '10px' }} aria-label="search" onClick={buscar}>
                             <SearchIcon />
                         </IconButton>
                         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />

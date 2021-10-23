@@ -18,6 +18,7 @@ export const VentaL = function (id, idProducto, nombreProducto, valorUnitario,
     this.fecha = fecha;
     this.clienteDocumento = clienteDocumento;
     this.nombreCliente = nombreCliente;
+    this.nombreUsuario = nombreUsuario;
     this.usuario = new Usuario(idUsuario, '', nombreUsuario, '', '');
 }
 
